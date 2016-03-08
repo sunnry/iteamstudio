@@ -12,36 +12,54 @@ body {
 -------------------------------------------------- */
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
-.navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
-}
 
 /* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper > .navbar-fixed-top{
-  top: 20px;
-}
 
-.navbar-wrapper > .container {
+.container {
   padding-right: 0;
   padding-left: 0;
+  width:auto;
 }
-.navbar-wrapper .navbar {
+.navbar {
+  min-height:60px;
   padding-right: 15px;
   padding-left: 15px;
 }
-.navbar-wrapper .navbar .container {
+.navbar .container {
   width: auto;
 }
 
-.navbar-wrapper .navbar-inverse {
-  background-color:transparent;
-  border-color:transparent;
+.navbar-inverse {
+  background-color:white;
+  border-color:black;
+  padding-top:0px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+.navbar-transparent {
+  background-color:transparent;
+  padding-top:15px;
+  border-bottom: 1px solid transparent;
+}
+
+.navbar-left-padding {
+ padding-left: 60px;
+}
+
+.navbar-right-padding {
+ padding-right: 60px;
+}
+
+.navbar-nav>li>a {
+ padding-top: 20px;
+ padding-bottom: 20px;
+}
+
+.navbar-brand {
+ height:60px;
+ padding-top:20px;
+ padding-bottom:20px;
+}
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -106,21 +124,18 @@ body {
 
 @media (min-width: 768px) {
   /* Navbar positioning foo */
-  .navbar-wrapper {
-    margin-top: 20px;
+  .container {
+    padding-right: 0px;
+    padding-left: 0px;
   }
-  .navbar-wrapper .container {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  .navbar-wrapper .navbar {
+  .navbar {
     padding-right: 0;
     padding-left: 0;
   }
 
   /* The navbar becomes detached from the top, so we round the corners */
-  .navbar-wrapper .navbar {
-    border-radius: 4px;
+  .navbar {
+    border-radius: 0px;
   }
 
   /* Bump up size of carousel content */

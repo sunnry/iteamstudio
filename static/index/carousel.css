@@ -34,12 +34,14 @@ body {
   border-color:black;
   padding-top:0px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
+  transition: background-color 1s;
 }
 
 .navbar-transparent {
   background-color:transparent;
   padding-top:15px;
   border-bottom: 1px solid transparent;
+  transition: background-color 1s;
 }
 
 .navbar-left-padding {

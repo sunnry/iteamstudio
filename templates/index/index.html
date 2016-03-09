@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     {% load staticfiles %}
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="{% static 'assets/favicon.ico' %}">
 
     <title>Carousel Template for Bootstrap</title>
 
@@ -35,7 +35,7 @@
 ================================================== -->
   <body>
 
-        <nav class="navbar navbar-inverse navbar-fixed-top navbar-transparent">
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-transparent" role="navigation">
           <div class="container">
             <div class="navbar-header navbar-left-padding">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -211,6 +211,8 @@
     <script src="{% static 'jquery/jquery.min.js' %}"></script>
     <script>window.jQuery || document.write('<script src="../../assets/jquery.min.js"><\/script>')</script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jquery/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/local.js' %}"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="{% static 'assets/holder.min.js' %}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

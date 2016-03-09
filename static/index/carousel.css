@@ -61,6 +61,8 @@ body {
  height:60px;
  padding-top:20px;
  padding-bottom:20px;
+ font-family:slim-joe;
+ font-size:25px;
 }
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -88,6 +90,12 @@ body {
   height: 500px;
 }
 
+@font-face {
+	font-family: 'slim-joe';
+	src:url('../assets/fonts/Slim-Joe.otf') format("opentype");
+	font-weight: normal;
+	font-style: normal;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

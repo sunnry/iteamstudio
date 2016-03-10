@@ -14,6 +14,34 @@ body {
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 
 /* Flip around the padding for proper display in narrow viewports */
+.dd{
+  position:fixed;
+  width:100%;
+  left:0;
+  padding:20px 3%;
+  background-color:rgba(32,35,38,0.5);
+  visibility:hidden;
+}
+
+.dd-visible{
+  visibility:visible;
+}
+
+.dd ul{
+  position:relative;
+  float:left;
+  margin:0 26px;
+}
+
+.list-unstyled{
+  list-style:none;
+  padding-left:0;
+}
+
+.list-unstyled > li{
+  float:left;
+  padding:15px;
+}
 
 .container {
   padding-right: 0;

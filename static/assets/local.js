@@ -9,6 +9,24 @@ $(window).on('scroll',function(){
 });
 
 
+$('.ddl').on({
+	mouseenter:function(event){
+	   $sub = $(this).children('.dd');
+	   $sub.addClass('dd-visible');
+	},
+	mouseleave:function(event){
+	   $sub = $(this).children('.dd');
+	   $sub.removeClass('dd-visible');
+	}
+});
+
+$('.dd').on({
+	mouseleave:function(event){
+		$(this).removeClass('dd-visible');
+	}
+});
+
+
 var local = {
 		checkScrollForTransparentNavbar:function(){
 			var delayfunc = debounce(function(){

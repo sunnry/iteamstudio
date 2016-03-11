@@ -1,0 +1,44 @@
+{% block navbar %}
+        <nav class="navbar navbar-inverse navbar-fixed-top navbar-transparent" role="navigation">
+          <div class="container">
+            <div class="navbar-header navbar-left-padding">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Project</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="ddl"><a href="#3d">3D</a>
+                  <div class="dd">
+                        <ul class="list-unstyled">
+                           <li>Model Design</li>
+                           <li>Game Scene Design</li>
+                           <li>CG Design</li>
+                        </ul>
+                  </div>
+                </li>
+                <li class="ddl"><a href="#programming">Programming</a>
+                  <div class="dd">
+                        <ul class="list-unstyled">
+                           <li>Bootstrap Template Design</li>
+                           <li>Django Development</li>
+                           <li>Node.js Development</li>
+                           <li>Linux Kernel Driver Development</li>
+                           <li>Others</li>
+                        </ul>
+                  </div>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About Us</a></li>
+              </ul>
+              <ul class="nav navbar-nav" style="float:right;">
+                 <li><a href="#">Register</a></li><li class="navbar-right-padding"><a href="#">Login</a><li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+{% endblock %}

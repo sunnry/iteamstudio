@@ -1,0 +1,15 @@
+{% block footloader %}
+    {% load staticfiles %}
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/jquery.min.js"><\/script>')</script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jquery/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/local.js' %}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="{% static 'assets/holder.min.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{% static 'assets/ie10-viewport-bug-workaround.js' %}"></script>
+{% endblock %}

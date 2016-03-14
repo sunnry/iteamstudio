@@ -1,0 +1,91 @@
+{% block register_form %}
+<section data-bg="/assets/auth/iron-man-blur-374f0abc9f8cb3725987d42be2540050.jpg" id="auth-bg-wrapper" class="bg-on" style="background-image: url(https://trakt.tv/assets/auth/iron-man-blur-374f0abc9f8cb3725987d42be2540050.jpg);">
+</section>
+<div id="auth-form-wrapper">
+      <a href="https://trakt.tv/">
+        <div class="logo-wrapper">
+          <div class="base">
+          </div>
+          <div class="logo">
+          </div>
+       </div>
+      </a>
+      <form class="simple_form form-signin" novalidate="novalidate" id="new_user" action="/auth" accept-charset="UTF-8" method="post">
+          <input name="utf8" type="hidden" value="✓">
+          <input type="hidden" name="authenticity_token" value="Z8Horr4OXVXnPl8Ji1dXtZDaLa8cbQYcTN8gsp1/KenabQcr6IGsoJLfJVUzZJ8cmUY+2tqFApv6Wbh26acMZQ==">
+          <h1>trakt</h1>
+          <h2 class="quote">The House Party Protocol, sir?</h2>
+          <div class="form-inputs with-icons">
+             <div class="with-icon">
+               <div class="icon trakt-icon-mail">
+               </div>
+               <div class="control-group email required user_email">
+                   <div class="controls">
+                      <input class="string email required top form-control" autocorrect="off" autocapitalize="off" autofocus="autofocus" placeholder="Email" type="email" value="" name="user[email]" id="user_email">
+                   </div>
+               </div>
+             </div>
+            <div class="with-icon">
+               <div class="icon trakt-icon-user">
+               </div>
+               <div class="control-group string required user_username">
+                  <div class="controls">
+                     <input class="string required middle form-control" autocorrect="off" autocapitalize="off" placeholder="Username" type="text" name="user[username]" id="user_username">
+                  </div>
+               </div>
+            </div>
+            <div class="with-icon">
+               <div class="icon trakt-icon-lock">
+               </div>
+               <div class="control-group password required user_password">
+                    <div class="controls">
+                          <input class="password required middle form-control" placeholder="Password" type="password" name="user[password]" id="user_password">
+                    </div>
+               </div>
+            </div>
+            <div class="with-icon">
+               <div class="icon trakt-icon-lock">
+               </div>
+               <div class="control-group password required user_password_confirmation">
+                  <div class="controls">
+                      <input class="password required bottom form-control" placeholder="Confirm Password" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+                  </div>
+               </div>
+            </div>
+          </div>
+          <div class="form-actions">
+              <input type="submit" name="commit" value="Join trakt" class="btn btn btn-primary btn-block">
+          </div>
+          <div class="auth-services">
+             <div class="row">
+                <div class="col-xs-4">
+                   <a href="/auth/auth/twitter">
+                      <div class="btn btn-block btn-twitter">
+                        <div class="fa fa-twitter">
+                        </div>
+                      </div>
+                   </a>
+                </div>
+                <div class="col-xs-4">
+                   <a href="/auth/auth/facebook">
+                      <div class="btn btn-block btn-facebook">
+                        <div class="fa fa-facebook">
+                        </div>
+                      </div>
+                   </a>
+                </div>
+                <div class="col-xs-4">
+                   <a href="/auth/auth/google_oauth2">
+                      <div class="btn btn-block btn-google-plus">
+                        <div class="fa fa-google-plus">
+                        </div>
+                      </div>
+                   </a>
+                </div>
+              </div>
+           </div>
+    </form>
+    <div class="bottom-wrapper">Already a member? <a href="https://trakt.tv/auth/signin">Sign in now <span class="trakt-icon-arrow-right"></span></a>
+    </div>
+</div>
+{% endblock %}

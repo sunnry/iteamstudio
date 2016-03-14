@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'index',
+    'register',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -71,7 +72,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'iteamstudio.wsgi.application'
 
+# Security
+SECURE_SSL_REDIRECT = True
 
+SECURE_REDIRECT_EXEMPT = [r'^$']
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 

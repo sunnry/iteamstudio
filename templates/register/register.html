@@ -1,5 +1,10 @@
 {% extends 'register/register_base.html' %}
 
+{% block register_header %}
+   {% include 'index/header.html' %}
+   {% include 'register/register_header.html' %}
+{% endblock %}
+
 {% block register_form %}
    {% include 'register/register_form.html' %}
 {% endblock %}

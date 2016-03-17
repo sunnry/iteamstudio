@@ -92,29 +92,7 @@
  font-size:20px;
  position:absolute;
  left:10px;
- top:12px;
-}
-
-.trakt-icon-mail,.trakt-icon-user,.trakt-icon-lock {
-  font-style:normal;
-  font-weight:normal;
-  font-variant:normal;
-  text-transform:none;
-  text-rendering:auto;
-  line-height:1;
-  vertical-align:middle;
-}
-
-.trakt-icon-mail:before{
-  content:"\e60f";
-}
-
-.trakt-icon-user:before{
-  content:"\e60a";
-}
-
-.trakt-icon-lock:before{
-  content:"\e60e";
+ top:8px;
 }
 
 #auth-form-wrapper .btn-primary{

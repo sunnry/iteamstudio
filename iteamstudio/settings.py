@@ -114,6 +114,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
+
+# currently if you want to login with admin, you will find admin page
+# can not load any resources such as css and image files, if you want
+# to show this resources properly, the step like this:
+# first mark STATICFILES_DIRS
+# second define STATIC_ROOT = os.path.join(BASE_DIR,'static')
+# run command : python manage.py collectstatic, this command will
+# collect all related static files and put it under STATIC_ROOT
 STATICFILES_DIRS = (
 	os.path.join(BASE_DIR,"static"),
 )

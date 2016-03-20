@@ -127,3 +127,7 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = '/public/'
+
+# you should add this email setting before you set mail correctly, otherwise
+# allauth signup will not correct and refuse connection.
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

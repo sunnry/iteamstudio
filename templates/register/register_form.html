@@ -1,9 +1,10 @@
 {% block register_form %}
 {% load staticfiles %}
+{% load account %}
 <section data-bg="{% static 'register/register-background.jpeg' %}" id="auth-bg-wrapper" class="bg-on" style="background-image: url({% static 'register/register-background.jpeg' %});">
 </section>
 <div id="auth-form-wrapper">
-      <a href="https://trakt.tv/">
+      <a href="#">
         <div class="logo-wrapper">
           <div class="base">
           </div>
@@ -11,18 +12,17 @@
           </div>
        </div>
       </a>
-      <form class="simple_form form-signin" novalidate="novalidate" id="new_user" action="/auth" accept-charset="UTF-8" method="post">
-          <input name="utf8" type="hidden" value="✓">
-          <input type="hidden" name="authenticity_token" value="Z8Horr4OXVXnPl8Ji1dXtZDaLa8cbQYcTN8gsp1/KenabQcr6IGsoJLfJVUzZJ8cmUY+2tqFApv6Wbh26acMZQ==">
-          <h1>trakt</h1>
-          <h2 class="quote">The House Party Protocol, sir?</h2>
+      <form class="simple_form form-signin" novalidate="novalidate" id="new_user" action="{% url 'account_signup' %}" accept-charset="UTF-8" method="post">
+	  {% csrf_token %}
+          <h1>iteamStudio</h1>
+          <h2 class="quote">signup a new account</h2>
           <div class="form-inputs with-icons">
              <div class="with-icon">
                <div class="icon fa fa-paper-plane">
                </div>
                <div class="control-group email required user_email">
                    <div class="controls">
-                      <input class="string email required top form-control" autocorrect="off" autocapitalize="off" autofocus="autofocus" placeholder="Email" type="email" value="" name="user[email]" id="user_email">
+                      <input class="string email required top form-control" autocorrect="off" autocapitalize="off" autofocus="autofocus" placeholder="Email" type="email" value="" name="email" id="user_email">
                    </div>
                </div>
              </div>
@@ -31,7 +31,7 @@
                </div>
                <div class="control-group string required user_username">
                   <div class="controls">
-                     <input class="string required middle form-control" autocorrect="off" autocapitalize="off" placeholder="Username" type="text" name="user[username]" id="user_username">
+                     <input class="string required middle form-control" autocorrect="off" autocapitalize="off" placeholder="Username" type="text" name="username" id="user_username">
                   </div>
                </div>
             </div>
@@ -40,7 +40,7 @@
                </div>
                <div class="control-group password required user_password">
                     <div class="controls">
-                          <input class="password required middle form-control" placeholder="Password" type="password" name="user[password]" id="user_password">
+                          <input class="password required middle form-control" placeholder="Password" type="password" name="password1" id="user_password">
                     </div>
                </div>
             </div>
@@ -49,7 +49,7 @@
                </div>
                <div class="control-group password required user_password_confirmation">
                   <div class="controls">
-                      <input class="password required bottom form-control" placeholder="Confirm Password" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+                      <input class="password required bottom form-control" placeholder="Confirm Password" type="password" name="password2" id="user_password_confirmation">
                   </div>
                </div>
             </div>

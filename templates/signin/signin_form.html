@@ -1,0 +1,74 @@
+{% block register_form %}
+{% load staticfiles %}
+{% load account %}
+<section data-bg="{% static 'register/register-background.jpeg' %}" id="auth-bg-wrapper" class="bg-on" style="background-image: url({% static 'register/register-background.jpeg' %});">
+</section>
+<div id="auth-form-wrapper">
+      <a href="#">
+        <div class="logo-wrapper">
+          <div class="base">
+          </div>
+          <div class="logo">
+          </div>
+       </div>
+      </a>
+      <form class="simple_form form-signin" novalidate="novalidate" id="new_user" action="{% url 'account_login' %}" accept-charset="UTF-8" method="post">
+	  {% csrf_token %}
+          <h1>iteamStudio</h1>
+          <h2 class="quote">please login</h2>
+          <div class="form-inputs with-icons">
+            <div class="with-icon">
+               <div class="icon fa fa-user">
+               </div>
+               <div class="control-group string required user_username">
+                  <div class="controls">
+                     <input class="string required middle form-control" autocorrect="off" autocapitalize="off" placeholder="Username" type="text" name="username" id="user_username">
+                  </div>
+               </div>
+            </div>
+            <div class="with-icon">
+               <div class="icon fa fa-lock">
+               </div>
+               <div class="control-group password required user_password">
+                    <div class="controls">
+                          <input class="password required middle form-control" placeholder="Password" type="password" name="password" id="user_password">
+                    </div>
+               </div>
+            </div>
+          </div>
+          <div class="form-actions">
+              <input type="submit" name="commit" value="Login" class="btn btn btn-primary btn-block">
+          </div>
+          <div class="auth-services">
+             <div class="row">
+                <div class="col-xs-4">
+                   <a href="/auth/auth/twitter">
+                      <div class="btn btn-block btn-twitter">
+                        <div class="fa fa-twitter">
+                        </div>
+                      </div>
+                   </a>
+                </div>
+                <div class="col-xs-4">
+                   <a href="/auth/auth/facebook">
+                      <div class="btn btn-block btn-facebook">
+                        <div class="fa fa-facebook">
+                        </div>
+                      </div>
+                   </a>
+                </div>
+                <div class="col-xs-4">
+                   <a href="/auth/auth/google_oauth2">
+                      <div class="btn btn-block btn-google-plus">
+                        <div class="fa fa-google-plus">
+                        </div>
+                      </div>
+                   </a>
+                </div>
+              </div>
+           </div>
+    </form>
+    <div class="bottom-wrapper">Not a member? <a href="{% url 'register:register' %}">Signup now <span class="trakt-icon-arrow-right"></span></a>
+    </div>
+</div>
+{% endblock %}

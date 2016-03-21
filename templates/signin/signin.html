@@ -1,0 +1,16 @@
+{% extends 'signin/signin_base.html' %}
+
+
+{% block signin_header %}
+   {% include 'index/header.html' %}
+   {% include 'register/register_header.html' %}
+{% endblock %}
+
+
+{% block signin_form %}
+   {% include 'signin/signin_form.html' %}
+{% endblock %}
+
+{% block footloader %}
+   {% include 'index/footloader.html' %}
+{% endblock %}

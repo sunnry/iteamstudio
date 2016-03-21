@@ -19,6 +19,7 @@ from django.views.generic.base import TemplateView
 urlpatterns = [
     url(r'^$', include('index.urls',namespace="index")),
     url(r'^register/',include('register.urls',namespace="register")),
+    url(r'^signin/',include('signin.urls',namespace="signin")),
     url(r'^accounts/',include('allauth.urls')),
     url(r'^accounts/profile/$',TemplateView.as_view(template_name='accounts/profile.html')),
     url(r'^admin/', include(admin.site.urls)),

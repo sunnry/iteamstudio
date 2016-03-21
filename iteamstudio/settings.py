@@ -132,3 +132,7 @@ STATIC_URL = '/public/'
 # you should add this email setting before you set mail correctly, otherwise
 # allauth signup will not correct and refuse connection.
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# you had better set this value and match it with database site.id nubmer,
+# also you need to let your allauth socalapp select rlated site.
+SITE_ID = 2

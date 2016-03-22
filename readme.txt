@@ -12,3 +12,7 @@ get information of one python module
 1. you can use python help command after you import this module:
    >>> import django
    >>> help(django)
+
+2. install python plugin for vim : pydiction
+   #git clone https://github.com/rkulla/pydiction.git
+   #see readme of this repo, which will tell you how install and config pydiction plugin

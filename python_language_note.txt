@@ -1,0 +1,67 @@
+N1:子类的类变量如果和父类重名，父类该变量的值会被完全覆盖,即使调用super也只是得到子类的该变量值:
+example:
+   
+class a(object):
+	x = 'i am parent'
+
+	def px(self):
+		return self.x
+
+
+class b(a):
+	x = 'i am child'
+
+	def px(self):
+		return self.x
+
+	def pxx(self):
+		return super(b,self).px()
+
+y = a()
+print '%s' % y.px()
+
+y = b()
+print '%s' % y.px()
+print '%s' % y.pxx()
+
+output:
+i am parent
+i am child
+i am child
+那如果一定要调用父类的该值，可以在父类中使用__init__()来重新将该值初始化为父类的值
+example:
+class a(object):
+        x = 'i am parent'
+
+	def __init__(self):
+		self.x = 'parent x'
+
+        def px(self):
+                return self.x
+
+
+class b(a):
+        x = 'i am child'
+
+	def __init__(self):
+		super(b,self).__init__()
+
+        def px(self):
+                return self.x
+
+        def pxx(self):
+                return super(b,self).px()
+
+y = a()
+print '%s' % y.px()
+
+y = b()
+print '%s' % y.px()
+print '%s' % y.pxx()
+
+output:
+parent x
+parent x
+parent x
+
+好好想想为啥都是 parent x，实际上python 父类和子类的同名变量在内存中只能有一份，就看谁最后设值了，对吧，再好好想想 ：）

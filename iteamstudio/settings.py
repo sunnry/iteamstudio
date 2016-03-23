@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'index',
     'register',
     'signin',
+    'profiling',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

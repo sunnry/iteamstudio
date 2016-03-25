@@ -17,8 +17,10 @@ class CustomerSignupView(SignupView):
 
     def get_context_data(self,**kwargs):
         ret = super(CustomerSignupView,self).get_context_data(**kwargs)
+        #if you want to redirect to customer url when signup successfully,you can set following value
+        redirect_field_value = "/"
+        ret.update({"redirect_field_value":redirect_field_value})
         return ret
 
 
 c_signup = CustomerSignupView.as_view()
-# Create your views here.

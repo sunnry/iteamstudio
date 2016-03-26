@@ -15,6 +15,10 @@ def signin(request):
 class CustomerSigninView(LoginView):
     template_name = "signin/signin.html"
 
-
+    def get_context_data(self,**kwargs):
+        ret = super(CustomerSigninView,self).get_context_data(**kwargs)
+        redirect_field_value = "/"
+        ret.update({'redirect_field_value':redirect_field_value})
+        return ret
 
 c_signin = CustomerSigninView.as_view()

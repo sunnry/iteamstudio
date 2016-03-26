@@ -46,6 +46,9 @@
                <div class="control-group password required user_password">
                     <div class="controls">
                           <input class="password required middle form-control" placeholder="Password" type="password" name="password" id="user_password">
+			  {% if redirect_field_value %}
+			    <input type="hidden" name="{{redirect_field_name}}" value="{{redirect_field_value}}">
+			  {% endif %}
                     </div>
                </div>
             </div>

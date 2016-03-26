@@ -15,7 +15,21 @@
       <form class="simple_form form-signin" novalidate="novalidate" id="new_user" action="{% url 'account_login' %}" accept-charset="UTF-8" method="post">
 	  {% csrf_token %}
           <h1>iteamStudio</h1>
-          <h2 class="quote">please login</h2>
+          {% if form.non_field_errors %}
+	    {% for error in form.non_field_errors %}
+	      <h2 class="quote">{{error}}</h2>
+	    {% endfor %}
+	  {% endif %}
+	  {% if form.username.errors %}
+	    {% for error in form.username.errors %}
+	      <h2 class="quote">{{error}}</h2>
+	    {% endfor %}
+	  {% endif %}
+	  {% if form.password.errors %}
+	    {% for error in form.password.errors %}
+	      <h2 class="quote">{{error}}</h2>
+	    {% endfor %}
+	  {% endif %}
           <div class="form-inputs with-icons">
             <div class="with-icon">
                <div class="icon fa fa-user">

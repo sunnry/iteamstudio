@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^register/',include('register.urls',namespace="register")),
     url(r'^signin/',include('signin.urls',namespace="signin")),
     url(r'^accounts/signup/$','register.views.c_signup',name = 'customerSignup'),
+    url(r'^accounts/login/$','signin.views.c_signin',name = 'customerSignin'),
     url(r'^accounts/',include('allauth.urls')),
     url(r'^accounts/profile/$',include('profiling.urls',namespace='profiling')),
     url(r'^admin/', include(admin.site.urls)),

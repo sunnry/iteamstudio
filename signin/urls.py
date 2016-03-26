@@ -3,5 +3,5 @@ from . import views
 
 
 urlpatterns = [
-        url(r'^$',views.signin,name="signin"),
+        url(r'^$',views.c_signin,name="signin"),
 ]

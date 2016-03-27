@@ -4,7 +4,7 @@
 <section data-bg="{% static 'register/register-background.jpeg' %}" id="auth-bg-wrapper" class="bg-on" style="background-image: url({% static 'register/register-background.jpeg' %});">
 </section>
 <div id="auth-form-wrapper">
-      <a href="#">
+      <a href="{% url 'index:index' %}">
         <div class="logo-wrapper">
           <div class="base">
           </div>
@@ -85,7 +85,12 @@
               </div>
            </div>
     </form>
+    {% if form.non_field_errors %}
+        <div class="bottom-wrapper"><a href="{% url 'account_reset_password' %}">Forgot password ?<span class="trakt-icon-arrow-right"></span></a>
+	</div>
+    {% else %}
     <div class="bottom-wrapper">Not a member? <a href="{% url 'register:register' %}">Signup now <span class="trakt-icon-arrow-right"></span></a>
     </div>
+    {% endif %}
 </div>
 {% endblock %}

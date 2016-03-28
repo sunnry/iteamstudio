@@ -81,6 +81,7 @@
 
 #auth-form-wrapper .with-icons .with-icon{
  position: relative;
+ margin-bottom:5px;
 }
 
 #auth-form-wrapper .with-icons .with-icon input{
@@ -155,4 +156,20 @@
  color:white;
  background-color:#dd4a38;
  border-color:#dd4a38;
+}
+
+.imageVerifyBlock{
+  height:34px;
+}
+
+.with-icon .imageVerifyField{
+  width:50%;
+  height:34px;
+  float:left;
+}
+
+.with-icon .imageVerifyImg{
+ width:35%;
+ height:34px;
+ float:right;
 }

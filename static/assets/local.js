@@ -26,6 +26,18 @@ $('.dd').on({
 	}
 });
 
+/*I add a random digital behand src new request, this will let server side
+ * treat it as a whole new request and will perform new response, also you 
+ * can add expire time in you response header like following:
+ * "Content-Type: image/jpeg"
+ * "Cache-Control: no-cache, must-revalidate"
+ * "Expires: Sat, 26 Jul 1997 05:00:00 GMT"*/
+$('.signinImgVerify').on({
+	click:function(event){
+	var url = "/accounts/captcha/"
+		$(this).attr("src",url + '?rand=' + Math.random())
+	}
+});
 
 var local = {
 		checkScrollForTransparentNavbar:function(){

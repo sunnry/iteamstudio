@@ -30,6 +30,9 @@
 	      <h2 class="quote">{{error}}</h2>
 	    {% endfor %}
 	  {% endif %}
+          {% if imageVerifyError %}
+             <h2>{{imageVerifyError}}</h2>
+          {% endif %}
           <div class="form-inputs with-icons">
             <div class="with-icon">
                <div class="icon fa fa-user">

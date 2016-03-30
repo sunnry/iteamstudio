@@ -6,6 +6,9 @@ from allauth.account.views import LoginView
 from PIL import Image,ImageDraw,ImageFont
 import cStringIO,random,string,os
 from iteamstudio.settings import BASE_DIR
+
+from .vsignform import vform
+from django import forms
 # Create your views here.
 
 
@@ -34,6 +37,43 @@ def signin(request):
 
 class CustomerSigninView(LoginView):
     template_name = "signin/signin.html"
+    form_class = vform
+
+    def get_form_class(self):
+        return super(LoginView,self).get_form_class()
+
+    def form_invalid(self,form):
+        try:
+            vcode = form.cleaned_data['imageVerify'].lower()
+        except KeyError:
+            ctx = self.get_context_data()
+            error_code = "verify code empty"
+            ctx.update({'imageVerifyError':error_code})
+            return self.render_to_response(ctx)
+
+        return super(CustomerSigninView,self).form_invalid(form)
+
+
+
+    def form_valid(self,form):
+        vcode = form.cleaned_data['imageVerify'].lower()
+        vcode_session = self.request.session['captha']
+
+        if isinstance(vcode,unicode):
+            vcode = vcode.encode('ascii','ignore')
+
+        if isinstance(vcode_session,unicode):
+            vcode_session = vcode_session.encode('ascii','ignore')
+
+        #if image verify code correct, following into normal login process
+        if vcode == vcode_session:
+            return super(CustomerSigninView,self).form_valid(form)
+        else:
+            ctx = self.get_context_data()
+            error_code = 'verify code not match'
+            ctx.update({'imageVerifyError':error_code})
+            return self.render_to_response(ctx)
+
 
     def get_context_data(self,**kwargs):
         ret = super(CustomerSigninView,self).get_context_data(**kwargs)

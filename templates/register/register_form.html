@@ -40,6 +40,9 @@
              <h2 class="quote">{{error}}</h2>
 	    {% endfor %}
 	  {% endif %}
+	  {% if imageVerifyError %}
+	     <h2>{{imageVerifyError}}</h2>
+	  {% endif %}
           <div class="form-inputs with-icons">
              <div class="with-icon">
                <div class="icon fa fa-paper-plane">
@@ -80,6 +83,20 @@
                   </div>
                </div>
             </div>
+	    <div class="with-icon imageVerifyBlock" >
+               <div class="icon fa fa-check">
+               </div>
+               <div class="control-group string required imageVerify">
+                  <div class="controls">
+		     <div class="imageVerifyField">
+                        <input class="string required middle form-control"  placeholder="verify code" type="text" name="imageVerify">
+		     </div>
+		     <div class="imageVerifyImg">
+			<img class="form-control signinImgVerify"  src="/accounts/captcha/">
+		     </div>
+                  </div>
+               </div>
+	    </div>
           </div>
           <div class="form-actions">
               <input type="submit" name="commit" value="Join Us" class="btn btn btn-primary btn-block">

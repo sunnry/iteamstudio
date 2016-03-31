@@ -1,7 +1,22 @@
-{% extends "base.html" %}
+{% extends 'accounts/profile_base.html' %}
 
-{% block content %}
-<h1>Profile</h1>
+{% block profile_header %}
+    {% include 'index/header.html' %}
+    {% include 'accounts/profile_header.html' %}
+{% endblock %}
 
-<p>Your profile</p>
+{% block navbar %}
+    {% include 'index/navbar.html' %}
+{% endblock %}
+
+{% block top-wrapper %}
+    {% include 'accounts/top-wrapper.html' %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'index/footer.html' %}
+{% endblock %}
+
+{% block footloader %}
+    {% include 'index/footloader.html' %}
 {% endblock %}

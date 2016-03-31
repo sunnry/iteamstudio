@@ -1,0 +1,18 @@
+{% block top-wrapper %}
+{% load account %}
+<section id="results-top-wrapper">
+   <div class="poster-bg-wrapper">
+     <div class="poster-bg">
+     </div>
+   </div>
+   <div class="container">
+       <h1>Profile</h1>
+   </div>
+   <div id="links-wrapper">
+     <div class="container">
+       <a class="selected" href="{% url 'profiling:user_profile' %}">General</a>
+       <a href="{% url 'account_logout' %}">logout</a>
+     </div>
+   </div>
+</section>
+{% endblock %}

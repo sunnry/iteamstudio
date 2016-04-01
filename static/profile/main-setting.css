@@ -1,0 +1,109 @@
+#main-settings{
+  padding-top:20px;
+  padding-left:80px;
+  padding-right:80px;
+}
+
+.row{
+  margin-right:-15px;
+  margin-left:-15px;
+}
+
+.col-md-2{
+  width:12.66%;
+  float:left;
+}
+
+.btn-link{
+ color:#ed1c24;
+}
+
+.col-md-10{
+  width:73.333%;
+  float:left;
+}
+
+.panel-default{
+  border-color:#dddddd;
+}
+
+.panel{
+  margin-bottom:20px;
+  background-color:white;
+  border-radius:0px;
+  box-shadow:0 1px 1px rgba(0,0,0,0.05);
+}
+
+.panel .panel-heading{
+ text-transform:uppercase;
+ padding:8px;
+ border-bottom:1px solid transparent;
+ border-top-left-radius:3px;
+ border-top-right-radius:3px;
+}
+
+.panel-default >.panel-heading{
+  color:#333333;
+  background-color:whitesmoke;
+  border-color:#dddddd;
+}
+
+.panel-body{
+ padding:15px;
+}
+
+.form-horizontal .form-group{
+ margin-left:-10px;
+ margin-right:-10px;
+ margin-bottom:15px;
+}
+
+.form-horizontal .control-label{
+ text-align:right;
+ margin-bottom:0px;
+ padding-top:7px;
+}
+
+.user-avatar{
+  position:relative;
+}
+
+.col-sm-3{
+ width:25%;
+}
+
+.user-avatar img{
+  width:100px;
+  height:100px;
+  float:right;
+  border:solid 3px #464646;
+  background-color:#464646;
+  margin-bottom:5px;
+  border-radius:50%;
+}
+
+.col-sm-7{
+ width:58.333%;
+}
+
+.user-img{
+ padding-top:40px;
+}
+
+.buttons{
+ padding-top:20px;
+ padding-bottom:20px;
+ text-align:center;
+}
+
+.buttons .btn{
+ text-transform:uppercase;
+ font-size:16px;
+ padding:10px 16px;
+}
+
+.btn-primary{
+  color:white;
+  background-color:#ed1c24;
+  border-color:#de1219;
+}

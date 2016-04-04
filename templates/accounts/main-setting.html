@@ -9,130 +9,28 @@
 				<div class="col-md-2 col-sm-2 hidden-xs">
 					<div class="sidebar affixable affix-top" data-offset-top="190">
 						<div>
-					   		<a class="btn btn-link" href="#account">Account</a>
+							<a class="btn btn-link" href="{% url 'profiling:user_profile' %}?tab=1">Account</a>
 						</div>
 						<div>
-					  		<a class="btn btn-link" href="#profile">User Profile</a>
+							<a class="btn btn-link" href="{% url 'profiling:user_profile' %}?tab=2">Change Password</a>
+						</div>
+						<div>
+							<a class="btn btn-link" href="{% url 'profiling:user_profile' %}?tab=3">Logout</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-10 col-sm-9">
-					<div class="panel panel-default" id="account">
-						<div class="panel-heading">Account</div>
-						<div class="panel-body">
-							<div class="form-group">
-								<label class="col-sm-3 control-label user-avatar">
-									<img src="https://secure.gravatar.com/avatar/a2b7176605ee24f07b86128a65262e1e?d=https%3A%2F%2Fwalter.trakt.us%2Fplaceholders%2Fmedium%2Fzoidberg.png&amp;r=pg&amp;s=256" alt="A2b7176605ee24f07b86128a65262e1e?d=https%3a%2f%2fwalter.trakt.us%2fplaceholders%2fmedium%2fzoidberg">
-								</label>
-								<div class="col-sm-7 user-avatar user-img control-group">
-									<div class="control-group file optional user_avatar hide">
-										<div class="controls">
-											<input id="avatar-input" class="file optional" type="file" name="user[avatar]">
-										</div>
-									</div>
-									<div class="input-group">
-										<input class="form-control" id="avatar-display" readonly="true" type="text" value="">
-											<a class="btn btn-info input-group-addon" id="avatar-file-upload">
-												<i class="fa fa-upload"></i> Browse
-											</a>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Username:</label>
-								<div class="col-sm-7">
-									<div class="control-group string required user_username">
-										<div class="controls">
-											<input class="string required form-control" autofocus="autofocus" placeholder="Username" type="text" value="test_11" name="user[username]" id="user_username">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Email:</label>
-								<div class="col-sm-7">
-									<div class="control-group email required user_email">
-										<div class="controls">
-											<input class="string email required form-control" placeholder="user@domain.com" type="email" value="842513780@qq.com" name="user[email]" id="user_email">
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Display name:</label>
-								<div class="col-sm-7"><div class="control-group string required user_full_name">
-									<div class="controls">
-										<input class="string required form-control" placeholder="Display name" type="text" name="user[full_name]" id="user_full_name">
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label">Location:</label>
-							<div class="col-sm-7">
-								<div class="control-group string required user_location">
-									<div class="controls">
-										<input class="string required form-control" placeholder="Location" type="text" name="user[location]" id="user_location">
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label">About:</label>
-							<div class="col-sm-7">
-								<div class="control-group text optional user_about">
-									<div class="controls">
-										<textarea class="text optional form-control" rows="5" placeholder="About" name="user[about]" id="user_about"></textarea>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-sm-3 control-label">Gender:</label>
-							<div class="col-sm-7">
-								<div class="control-group select optional user_gender">
-									<div class="controls">
-										<select class="select optional form-control" name="user[gender]" id="user_gender">
-											<option value="">Unknown</option>
-											<option value="male">Male</option>
-											<option value="female">Female</option>
-										</select>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+				{% if tab %}
+					{% ifequal tab  "1" %}
+						{% include 'accounts/panel_account.html' %}
+					{% endifequal %}
+					{% ifequal tab  "2" %}
+						{% include 'accounts/panel_changepassword.html' %}
+					{% endifequal %}
+				{% else %}
+					{% include 'accounts/panel_account.html' %}
+				{% endif %}
 				</div>
-				<div class="panel panel-default" id="password">
-					<div class="panel-heading">Change Password</div>
-				<div class="panel-body">
-					<div class="form-group">
-						<div class="col-sm-7 col-sm-offset-3">
-							<em>Only enter your password if you want to change it.</em>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label">New Password:</label>
-						<div class="col-sm-7">
-							<div class="control-group password optional user_password">
-								<div class="controls">
-									<input class="password optional form-control" type="password" name="user[password]" id="user_password">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-3 control-label">Confirm Password:</label>
-						<div class="col-sm-7">
-							<div class="control-group password optional user_password_confirmation">
-								<div class="controls">
-									<input class="password optional form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="form-group">
 				<div class="col-sm-12 buttons">
 					<input type="submit" name="commit" value="Save Settings" class="btn btn btn-primary">

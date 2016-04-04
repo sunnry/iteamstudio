@@ -13,6 +13,20 @@ class ProfileView(TemplateView):
         return super(ProfileView,self).dispatch(*args,**kwargs)
 
 
+    def get_context_data(self, **kwargs):
+        ret = super(ProfileView,self).get_context_data(**kwargs)
+        try:
+            tab = self.request.GET.get('tab')
+            if isinstance(tab,unicode):
+                tab = tab.encode('ascii','ignore')
+
+            ret.update({'tab':tab})
+            return ret
+        except KeyError:
+            return ret
+
+        return ret
+
 
 profiling = ProfileView.as_view()
 

@@ -103,7 +103,7 @@
            </div>
     </form>
     {% if form.non_field_errors %}
-        <div class="bottom-wrapper"><a href="{% url 'account_reset_password' %}">Forgot password ?<span class="trakt-icon-arrow-right"></span></a>
+        <div class="bottom-wrapper"><a href="{% url 'profiling:user_resetpassword' %}">Forgot password ?<span class="trakt-icon-arrow-right"></span></a>
 	</div>
     {% else %}
     <div class="bottom-wrapper">Not a member? <a href="{% url 'register:register' %}">Signup now <span class="trakt-icon-arrow-right"></span></a>

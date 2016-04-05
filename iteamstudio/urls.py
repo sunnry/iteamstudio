@@ -24,6 +24,6 @@ urlpatterns = [
     url(r'^accounts/login/$','signin.views.c_signin',name = 'customerSignin'),
     url(r'^accounts/captcha/$','signin.views.captcha',name = 'captcha'),
     url(r'^accounts/',include('allauth.urls')),
-    url(r'^accounts/profile/$',include('profiling.urls',namespace='profiling')),
+    url(r'^accounts/profile/',include('profiling.urls',namespace='profiling')),
     url(r'^admin/', include(admin.site.urls)),
 ]

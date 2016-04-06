@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^accounts/signup/$','register.views.c_signup',name = 'customerSignup'),
     url(r'^accounts/login/$','signin.views.c_signin',name = 'customerSignin'),
     url(r'^accounts/captcha/$','signin.views.captcha',name = 'captcha'),
+    url(r'^accounts/password/reset/key/(?P<uidb36>[0-9A-Za-z]+)-(?P<key>.+)/$','profiling.views.resetpassword_from_key',name='resetpassword_from_key'),
     url(r'^accounts/',include('allauth.urls')),
     url(r'^accounts/profile/',include('profiling.urls',namespace='profiling')),
     url(r'^admin/', include(admin.site.urls)),

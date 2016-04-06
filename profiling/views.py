@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse,reverse_lazy
-from allauth.account.views import PasswordChangeView,PasswordResetView,PasswordResetDoneView
+from allauth.account.views import PasswordChangeView,PasswordResetView,PasswordResetDoneView,PasswordResetFromKeyView
 
 class ProfileView(TemplateView):
     template_name = 'accounts/profile.html'
@@ -73,3 +73,19 @@ class CustomerPasswordResetDoneView(PasswordResetDoneView):
         return ret
 
 resetpassword_done = CustomerPasswordResetDoneView.as_view()
+
+
+
+
+class CustomerPasswordResetFromKeyView(PasswordResetFromKeyView):
+    template_name = 'accounts/profile.html'
+    success_url = reverse_lazy('signin:signin')
+
+    def get_context_data(self,**kwargs):
+        ret = super(CustomerPasswordResetFromKeyView,self).get_context_data(**kwargs)
+        ret.update({'tab':'resetpassword_from_key'})
+        return ret
+
+resetpassword_from_key = CustomerPasswordResetFromKeyView.as_view()
+
+

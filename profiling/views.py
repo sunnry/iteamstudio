@@ -1,11 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import FormView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse,reverse_lazy
-from allauth.account.views import PasswordChangeView,PasswordResetView,PasswordResetDoneView,PasswordResetFromKeyView
+from allauth.account.views import PasswordChangeView,PasswordResetView,PasswordResetDoneView,PasswordResetFromKeyView,RedirectAuthenticatedUserMixin,AjaxCapableProcessFormViewMixin
+from allauth.utils import get_form_class
+from allauth.account import app_settings
+from .forms import ProfileForm
+from .models import UserAccount
+import pdb
 
 class ProfileView(TemplateView):
     template_name = 'accounts/profile.html'
@@ -22,7 +28,24 @@ class ProfileView(TemplateView):
             if isinstance(tab,unicode):
                 tab = tab.encode('ascii','ignore')
             ret.update({'tab':tab})
-            return ret
+
+            if self.request.user.is_authenticated():
+                try:
+                    p = UserAccount.objects.get(user_id=self.request.user)
+                    user_displayname = getattr(p,'user_displayname')
+                    user_phone = getattr(p,'user_phone')
+                    user_location = getattr(p,'user_location')
+                    user_interest = getattr(p,'user_interest')
+                    ret.update({
+                        'user_displayname':user_displayname,
+                        'user_phone':user_phone,
+                        'user_location':user_location,
+                        'user_interest':user_interest
+                    })
+                    #pdb.set_trace()
+                    return ret
+                except UserAccount.DoesNotExist:
+                    return ret
         except KeyError:
             return ret
 
@@ -88,4 +111,30 @@ class CustomerPasswordResetFromKeyView(PasswordResetFromKeyView):
 
 resetpassword_from_key = CustomerPasswordResetFromKeyView.as_view()
 
+class UpdateUserProfileView(AjaxCapableProcessFormViewMixin,FormView):
+    template_name = 'accounts/profile.html'
+    form_class = ProfileForm
+    redirect_field_name = 'next'
+    success_url = reverse_lazy('index:index')
 
+    def dispatch(self,request,*args,**kwargs):
+        return super(UpdateUserProfileView,self).dispatch(request,*args,**kwargs)
+
+    def get_form_class(self):
+        return get_form_class(app_settings.FORMS,'user_profile',self.form_class)
+
+    def form_valid(self,form):
+        if form.save(self.request):
+            return HttpResponseRedirect(reverse('profiling:user_profile'))
+        else:
+            return HttpResponseRedirect(reverse('index:index')) #next commit will redirect to error page
+
+    def form_invalid(self,form):
+        return HttpResponseRedirect(reverse('index:index')) #next commit will redirect to error page
+
+    def get_context_data(self,**kwargs):
+        ret = super(UpdateUserProfileView,self).get_context_data(**kwargs)
+        ret.update({'tab':'basic'})
+        return ret
+
+updateprofile = UpdateUserProfileView.as_view()

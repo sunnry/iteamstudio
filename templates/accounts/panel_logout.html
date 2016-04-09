@@ -1,14 +1,13 @@
+                   <form class="simple_form form-horizontal" role="form"  action="{% url 'account_logout' %}" accept-charset="UTF-8" method="post">
                         {% csrf_token %}
                         {% if redirect_field_value %}
                                 <input type="hidden" name="{{redirect_field_name}}" value="{{redirect_field_value}}"/>
                         {% endif %}
                         <div class="row">
 {% include 'accounts/left_column.html' %}
-<div class="col-md-10 col-sm-9">
-<p>we have sent you a email to you for your reset your password, if you do not receive, pls contact us!</p>
-</div>
                         <div class="form-group">
                                 <div class="col-sm-12 buttons">
+					<input type="submit" name="commit" value="Logout" class="btn btn btn-primary">
                                 </div>
                         </div>
                 </div>

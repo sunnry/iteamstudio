@@ -1,95 +1,29 @@
 {% block main-setting %}
 <section id="main-settings">
 	<div class="container">
-	     {% if tab %}
-		{% ifequal tab "basic" %}
-		   <form class="simple_form form-horizontal" role="form" novalidate="novalidate" enctype="multipart/form-data" action="{% url 'profiling:updateprofile' %}" accept-charset="UTF-8" method="post">
-		{% endifequal %}
-		{% ifequal tab "changepassword" %}
-		   <form class="simple_form form-horizontal" role="form" novalidate="novalidate" enctype="multipart/form-data" action="{% url 'profiling:user_changepassword' %}" accept-charset="UTF-8" method="post">
-		{% endifequal %}
-		{% ifequal tab "resetpassword" %}
-		   <form class="simple_form form-horizontal" role="form" novalidate="novalidate" enctype="multipart/form-data" action="{% url 'profiling:user_resetpassword' %}" accept-charset="UTF-8" method="post">
-		{% endifequal %}
-		{% ifequal tab "resetpassword_from_key" %}
-		   <form class="simple_form form-horizontal" role="form" novalidate="novalidate" enctype="multipart/form-data" action="." accept-charset="UTF-8" method="post">
-		{% endifequal %}
-		{% ifequal tab "logout" %}
-		   <form class="simple_form form-horizontal" role="form"  action="{% url 'account_logout' %}" accept-charset="UTF-8" method="post">
-		{% endifequal %}
-	     {% else %}
-		<form class="simple_form form-horizontal" role="form" novalidate="novalidate" enctype="multipart/form-data" action="{% url 'profiling:updateprofile' %}" accept-charset="UTF-8" method="post">
-	     {% endif %}
-			{% csrf_token %}
-			{% if redirect_field_value %}
-				<input type="hidden" name="{{redirect_field_name}}" value="{{redirect_field_value}}"/>
-			{% endif %}
-			<div class="row">
-				<div class="col-md-2 col-sm-2 hidden-xs">
-					<div class="sidebar affixable affix-top" data-offset-top="190">
-						<div>
-							<a class="btn btn-link" href="{% url 'profiling:user_profile' %}?tab=basic">Account</a>
-						</div>
-						<div>
-							<a class="btn btn-link" href="{% url 'profiling:user_profile' %}?tab=changepassword">Change Password</a>
-						</div>
-						<div>
-							<a class="btn btn-link" href="{% url 'profiling:user_profile' %}?tab=resetpassword">Reset Password</a>
-						</div>
-						<div>
-							<a class="btn btn-link" href="{% url 'profiling:user_profile' %}?tab=logout">Logout</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-10 col-sm-9">
-				{% if tab %}
-					{% ifequal tab  "basic" %}
-						{% include 'accounts/panel_account.html' %}
-					{% endifequal %}
-					{% ifequal tab  "changepassword" %}
-						{% include 'accounts/panel_changepassword.html' %}
-					{% endifequal %}
-					{% ifequal tab  "resetpassword" %}
-						{% include 'accounts/panel_resetpassword.html' %}
-					{% endifequal %}
-					{% ifequal tab  "resetpassword_from_key" %}
-						{% include 'accounts/panel_resetpassword_from_key.html' %}
-					{% endifequal %}
-					{% ifequal tab "resetpassword_done" %}
-						{% include 'accounts/panel_resetpassword_done.html' %}
-					{% endifequal %}
-				{% else %}
-					{% include 'accounts/panel_account.html' %}
-				{% endif %}
-				</div>
-			<div class="form-group">
-				<div class="col-sm-12 buttons">
-				{% if tab %}
-				     {% ifequal tab "basic" %}
-					<input type="submit" name="commit" value="Save Settings" class="btn btn btn-primary">
-				     {% endifequal %}
-				     {% ifequal tab "changepassword" %}
-					<input type="submit" name="commit" value="Change Password" class="btn btn btn-primary">
-				     {% endifequal %}
-				     {% ifequal tab "resetpassword" %}
-					<input type="submit" name="commit" value="Reset Password" class="btn btn btn-primary">
-				     {% endifequal %}
-				     {% ifequal tab "resetpassword_from_key" %}
-					<input type="submit" name="commit" value="Commit" class="btn btn btn-primary">
-				     {% endifequal %}
-				     {% ifequal tab "logout" %}
-					<input type="submit" name="commit" value="Logout" class="btn btn btn-primary">
-				     {% endifequal %}
-				{% else %}
-					<input type="submit" name="commit" value="Save Settings" class="btn btn btn-primary">
-				{% endif %}
-				</div>
-			</div>
-		</div>
+		{% if tab %}
+			{% ifequal tab  "basic" %}
+				{% include 'accounts/panel_account.html' %}
+			{% endifequal %}
+			{% ifequal tab  "changepassword" %}
+				{% include 'accounts/panel_changepassword.html' %}
+			{% endifequal %}
+			{% ifequal tab  "resetpassword" %}
+				{% include 'accounts/panel_resetpassword.html' %}
+			{% endifequal %}
+			{% ifequal tab  "resetpassword_from_key" %}
+				{% include 'accounts/panel_resetpassword_from_key.html' %}
+			{% endifequal %}
+			{% ifequal tab "resetpassword_done" %}
+				{% include 'accounts/panel_resetpassword_done.html' %}
+			{% endifequal %}
+			{% ifequal tab "logout" %}
+				{% include 'accounts/panel_logout.html' %}
+			{% endifequal %}
+		{% else %}
+			{% include 'accounts/panel_account.html' %}
+		{% endif %}
 	</div>
-</form>
-</div>
 </section>
-
 
 {% endblock %}

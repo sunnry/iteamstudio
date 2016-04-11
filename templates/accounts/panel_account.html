@@ -1,3 +1,5 @@
+{% load staticfiles %}
+{% load profile_extras %}
 <form class="simple_form form-horizontal" role="form" novalidate="novalidate" enctype="multipart/form-data" action="{% url 'profiling:updateprofile' %}" accept-charset="UTF-8" method="post">
 		{% csrf_token %}
 		{% if redirect_field_value %}
@@ -9,15 +11,14 @@
 				<div class="panel panel-default" id="account">
 					<div class="panel-heading">Account</div>
 					<div class="panel-body">
-							<!---
 							<div class="form-group">
 								<label class="col-sm-3 control-label user-avatar">
-									<img src="https://secure.gravatar.com/avatar/a2b7176605ee24f07b86128a65262e1e?d=https%3A%2F%2Fwalter.trakt.us%2Fplaceholders%2Fmedium%2Fzoidberg.png&amp;r=pg&amp;s=256" alt="A2b7176605ee24f07b86128a65262e1e?d=https%3a%2f%2fwalter.trakt.us%2fplaceholders%2fmedium%2fzoidberg">
+									<img src="{{user.id|file_exists}}" alt="">
 								</label>
 								<div class="col-sm-7 user-avatar user-img control-group">
 									<div class="control-group file optional user_avatar hide">
 										<div class="controls">
-											<input id="avatar-input" class="file optional" type="file" name="user[avatar]">
+											<input id="avatar-input" class="file optional" type="file" name="avatar">
 										</div>
 									</div>
 									<div class="input-group">
@@ -28,7 +29,6 @@
 									</div>
 								</div>
 							</div>
-							-->
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Username:</label>
 								<div class="col-sm-7">

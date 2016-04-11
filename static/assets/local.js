@@ -26,6 +26,19 @@ $('.dd').on({
 	}
 });
 
+$('#avatar-file-upload').on({
+	click:function(event){
+		$('#avatar-input').trigger('click')
+	}
+});
+
+$('#avatar-input').on({
+	change:function(event){
+		value = $(this).val()
+		$('#avatar-display').val(value)
+	}
+})
+
 /*I add a random digital behand src new request, this will let server side
  * treat it as a whole new request and will perform new response, also you 
  * can add expire time in you response header like following:

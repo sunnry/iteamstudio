@@ -5,6 +5,7 @@ import pdb
 
 
 class ProfileForm(forms.Form):
+    avatar = forms.FileField()
     phone = forms.IntegerField()
     display_username = forms.CharField(max_length=30)
     location = forms.CharField(max_length=30)
@@ -14,7 +15,7 @@ class ProfileForm(forms.Form):
 
     def __init__(self,*args,**kwargs):
         super(ProfileForm,self).__init__(*args,**kwargs)
-        set_form_field_order(self,["phone","display_username","location","interest","gender"])
+        set_form_field_order(self,["avatar","phone","display_username","location","interest","gender"])
 
     #this function is used to bound data with form, i do nothing here just inherit from super class
     #to get error information
@@ -38,12 +39,13 @@ class ProfileForm(forms.Form):
     def save(self,request):
         if request.user.is_authenticated():
             self.user = request.user
+            f = request.FILES['avatar']
             p = self.cleaned_data['phone']
             d = self.cleaned_data['display_username']
             l = self.cleaned_data['location']
             i = self.cleaned_data['interest']
             g = self.cleaned_data['gender']
-            account = UserAccount(user=self.user,user_displayname=d,user_phone=p,user_location=l,user_interest=i,user_gender=g)
+            account = UserAccount(user=self.user,user_displayname=d,user_phone=p,user_location=l,user_interest=i,user_gender=g,user_avatar=f)
             account.save()
             return True
 

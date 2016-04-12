@@ -13,7 +13,23 @@ from .forms import ProfileForm
 from .models import UserAccount
 import pdb
 
-class ProfileView(TemplateView):
+class BaseProfileClass(object):
+    def get_displayName(self):
+        if self.request.user.is_authenticated():
+            try:
+                account = UserAccount.objects.get(user_id=self.request.user)
+                username = getattr(account,'user_displayname')
+                if isinstance(username,unicode):
+                    username = username.encode('ascii','ignore')
+                    return username
+            except UserAccount.DoesNotExist:
+                    username = self.request.user.get_username()
+                    return username
+        else:
+            return ""
+
+
+class ProfileView(TemplateView,BaseProfileClass):
     template_name = 'accounts/profile.html'
 
     @method_decorator(login_required(login_url='/signin'))
@@ -40,7 +56,8 @@ class ProfileView(TemplateView):
                         'user_displayname':user_displayname,
                         'user_phone':user_phone,
                         'user_location':user_location,
-                        'user_interest':user_interest
+                        'user_interest':user_interest,
+                        'username':self.get_displayName()
                     })
                     #pdb.set_trace()
                     return ret
@@ -55,7 +72,7 @@ class ProfileView(TemplateView):
 profiling = ProfileView.as_view()
 
 
-class CustomerPasswordChangeView(PasswordChangeView):
+class CustomerPasswordChangeView(PasswordChangeView,BaseProfileClass):
     template_name = 'accounts/profile.html'
     success_url = reverse_lazy('profiling:user_changepassword')
 
@@ -68,31 +85,37 @@ class CustomerPasswordChangeView(PasswordChangeView):
 
     def get_context_data(self,**kwargs):
         ret = super(CustomerPasswordChangeView,self).get_context_data(**kwargs)
-        ret.update({'tab':'changepassword'})
+        ret.update({'tab':'changepassword',
+                    'username':self.get_displayName()
+        })
         return ret
 
 changepassword = CustomerPasswordChangeView.as_view()
 
 
-class CustomerPasswordResetView(PasswordResetView):
+class CustomerPasswordResetView(PasswordResetView,BaseProfileClass):
     template_name = 'accounts/profile.html'
     success_url = reverse_lazy('profiling:user_resetpassword_done')
 
     def get_context_data(self,**kwargs):
         ret = super(CustomerPasswordResetView,self).get_context_data(**kwargs)
-        ret.update({'tab':'resetpassword'})
+        ret.update({'tab':'resetpassword',
+                    'username':self.get_displayName()
+        })
         return ret
 
 
 resetpassword = CustomerPasswordResetView.as_view()
 
 
-class CustomerPasswordResetDoneView(PasswordResetDoneView):
+class CustomerPasswordResetDoneView(PasswordResetDoneView,BaseProfileClass):
     template_name = 'accounts/profile.html'
 
     def get_context_data(self,**kwargs):
         ret = super(CustomerPasswordResetDoneView,self).get_context_data(**kwargs)
-        ret.update({'tab':'resetpassword_done'})
+        ret.update({'tab':'resetpassword_done',
+                    'username':self.get_displayName()
+                })
         return ret
 
 resetpassword_done = CustomerPasswordResetDoneView.as_view()
@@ -100,18 +123,20 @@ resetpassword_done = CustomerPasswordResetDoneView.as_view()
 
 
 
-class CustomerPasswordResetFromKeyView(PasswordResetFromKeyView):
+class CustomerPasswordResetFromKeyView(PasswordResetFromKeyView,BaseProfileClass):
     template_name = 'accounts/profile.html'
     success_url = reverse_lazy('signin:signin')
 
     def get_context_data(self,**kwargs):
         ret = super(CustomerPasswordResetFromKeyView,self).get_context_data(**kwargs)
-        ret.update({'tab':'resetpassword_from_key'})
+        ret.update({'tab':'resetpassword_from_key',
+                    'username':self.get_displayName()
+        })
         return ret
 
 resetpassword_from_key = CustomerPasswordResetFromKeyView.as_view()
 
-class UpdateUserProfileView(AjaxCapableProcessFormViewMixin,FormView):
+class UpdateUserProfileView(AjaxCapableProcessFormViewMixin,FormView,BaseProfileClass):
     template_name = 'accounts/profile.html'
     form_class = ProfileForm
     redirect_field_name = 'next'
@@ -134,7 +159,9 @@ class UpdateUserProfileView(AjaxCapableProcessFormViewMixin,FormView):
 
     def get_context_data(self,**kwargs):
         ret = super(UpdateUserProfileView,self).get_context_data(**kwargs)
-        ret.update({'tab':'basic'})
+        ret.update({'tab':'basic',
+                    'username':self.get_displayName()
+        })
         return ret
 
 updateprofile = UpdateUserProfileView.as_view()

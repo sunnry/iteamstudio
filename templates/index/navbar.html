@@ -1,4 +1,5 @@
 {% block navbar %}
+{% load index_extras %}
         <nav class="navbar navbar-inverse navbar-fixed-top navbar-transparent" role="navigation">
           <div class="container">
             <div class="navbar-header navbar-left-padding">
@@ -8,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Project</a>
+              <a class="navbar-brand" href="{% url 'index:index' %}">iAlphaStudio</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -37,7 +38,8 @@
               </ul>
               <ul class="nav navbar-nav" style="float:right;">
 		{% if user.is_authenticated %}
-                  <li class="navbar-right-padding"><a href="{% url 'profiling:user_profile' %}">Profile</a><li>
+                  <li class="navbar-default-padding"><a style="padding-top:15px" href="{% url 'profiling:user_profile' %}"><img src="{{user.id|file_exists}}" alt=""></a><li>
+                  <li class="navbar-right-padding"><a href="{% url 'profiling:user_profile' %}">{{username}}</a><li>
 		{% else %}
                  <li><a href="{% url 'register:register' %}">Signup</a></li><li class="navbar-right-padding"><a href="{% url 'signin:signin' %}">Login</a><li>
 		{% endif %}

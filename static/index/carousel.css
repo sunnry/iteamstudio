@@ -72,6 +72,10 @@ body {
   transition: all 1s;
 }
 
+.navbar-default-padding{
+ padding:0px;
+}
+
 .navbar-left-padding {
  padding-left: 180px;
 }
@@ -83,6 +87,12 @@ body {
 .navbar-nav>li>a {
  padding-top: 20px;
  padding-bottom: 20px;
+}
+
+.navbar-nav>li>a img{
+ width:35px;
+ height:35px;
+ border-radius:50%;
 }
 
 .navbar-brand {

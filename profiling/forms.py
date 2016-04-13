@@ -6,7 +6,7 @@ import pdb
 
 class ProfileForm(forms.Form):
     avatar = forms.FileField(required=False)
-    phone = forms.IntegerField(required=False)
+    phone = forms.CharField(max_length=30,required=False)
     display_username = forms.CharField(max_length=30,required=False)
     location = forms.CharField(max_length=30)
     interest = forms.CharField(max_length=500)

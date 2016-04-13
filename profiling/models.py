@@ -14,7 +14,7 @@ class UserAccount(models.Model):
     user_displayname = models.CharField(max_length=30,blank=True)
 #    user_email = models.EmailField(unique=True)
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
-    user_phone = models.IntegerField(null=True,blank=True)
+    user_phone = models.CharField(max_length=30,blank=True)
     user_location = models.CharField(max_length=30)
     user_interest = models.TextField()
 

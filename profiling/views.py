@@ -21,12 +21,35 @@ class BaseProfileClass(object):
                 username = getattr(account,'user_displayname')
                 if isinstance(username,unicode):
                     username = username.encode('ascii','ignore')
-                    return username
+                if username == '':
+                    username = self.request.user.get_username()
+                return username
             except UserAccount.DoesNotExist:
                     username = self.request.user.get_username()
                     return username
         else:
             return ""
+
+    def get_useraccount_data(self,ctx):
+        ret = ctx
+        if self.request.user.is_authenticated():
+            try:
+                p = UserAccount.objects.get(user_id=self.request.user)
+                user_displayname = getattr(p,'user_displayname')
+                user_phone = getattr(p,'user_phone')
+                user_location = getattr(p,'user_location')
+                user_interest = getattr(p,'user_interest')
+                ret.update({
+                    'user_displayname':user_displayname,
+                    'user_phone':user_phone,
+                    'user_location':user_location,
+                    'user_interest':user_interest,
+                    'username':self.get_displayName()
+                })
+            except UserAccount.DoesNotExist:
+                pass
+
+        return ret
 
 
 class ProfileView(TemplateView,BaseProfileClass):
@@ -36,35 +59,15 @@ class ProfileView(TemplateView,BaseProfileClass):
     def dispatch(self,*args,**kwargs):
         return super(ProfileView,self).dispatch(*args,**kwargs)
 
-
     def get_context_data(self, **kwargs):
         ret = super(ProfileView,self).get_context_data(**kwargs)
-        try:
-            tab = self.request.GET.get('tab')
+        tab = self.request.GET.get('tab')
+        if tab != None:
             if isinstance(tab,unicode):
                 tab = tab.encode('ascii','ignore')
             ret.update({'tab':tab})
 
-            if self.request.user.is_authenticated():
-                try:
-                    p = UserAccount.objects.get(user_id=self.request.user)
-                    user_displayname = getattr(p,'user_displayname')
-                    user_phone = getattr(p,'user_phone')
-                    user_location = getattr(p,'user_location')
-                    user_interest = getattr(p,'user_interest')
-                    ret.update({
-                        'user_displayname':user_displayname,
-                        'user_phone':user_phone,
-                        'user_location':user_location,
-                        'user_interest':user_interest,
-                        'username':self.get_displayName()
-                    })
-                    #pdb.set_trace()
-                    return ret
-                except UserAccount.DoesNotExist:
-                    return ret
-        except KeyError:
-            return ret
+        ret = self.get_useraccount_data(ret)
 
         return ret
 
@@ -141,6 +144,7 @@ class UpdateUserProfileView(AjaxCapableProcessFormViewMixin,FormView,BaseProfile
     form_class = ProfileForm
     redirect_field_name = 'next'
     success_url = reverse_lazy('index:index')
+    ferrors = None
 
     def dispatch(self,request,*args,**kwargs):
         return super(UpdateUserProfileView,self).dispatch(request,*args,**kwargs)
@@ -152,16 +156,54 @@ class UpdateUserProfileView(AjaxCapableProcessFormViewMixin,FormView,BaseProfile
         if form.save(self.request):
             return HttpResponseRedirect(reverse('profiling:user_profile'))
         else:
-            return HttpResponseRedirect(reverse('index:index')) #next commit will redirect to error page
+            return HttpResponseRedirect(reverse('profiling:user_profile')) #next commit will redirect to error page
 
     def form_invalid(self,form):
-        return HttpResponseRedirect(reverse('index:index')) #next commit will redirect to error page
+        ctx = self.get_context_data()
+        ctx = self.export_error(form,ctx)
+        return self.render_to_response(ctx)
+
+    def export_error(self,form,ctx):
+        ret = ctx
+        if form._errors:
+            try:
+                avatar_error = form._errors.pop('avatar')
+                ret.update({'avatar_error':avatar_error})
+            except KeyError:
+                pass
+            try:
+                display_username_error = form._errors.pop('display_username')
+                ret.update({'display_username_error':display_username_error})
+            except KeyError:
+                pass
+            try:
+                phone_error = form._errors.pop('phone')
+                ret.update({'phone_error':phone_error})
+            except KeyError:
+                pass
+            try:
+                location_error = form._errors.pop('location')
+                ret.update({'location_error':location_error})
+            except KeyError:
+                pass
+            try:
+                interest_error = form._errors.pop('interest')
+                ret.update({'interest_error':interest_error})
+            except KeyError:
+                pass
+            try:
+                gender_error = form._errors.pop('gender')
+                ret.update({'gender_error':gender_error})
+            except KeyError:
+                pass
+        return ret
 
     def get_context_data(self,**kwargs):
         ret = super(UpdateUserProfileView,self).get_context_data(**kwargs)
         ret.update({'tab':'basic',
                     'username':self.get_displayName()
         })
+        ret = self.get_useraccount_data(ret)
         return ret
 
 updateprofile = UpdateUserProfileView.as_view()

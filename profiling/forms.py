@@ -5,9 +5,9 @@ import pdb
 
 
 class ProfileForm(forms.Form):
-    avatar = forms.FileField()
-    phone = forms.IntegerField()
-    display_username = forms.CharField(max_length=30)
+    avatar = forms.FileField(required=False)
+    phone = forms.IntegerField(required=False)
+    display_username = forms.CharField(max_length=30,required=False)
     location = forms.CharField(max_length=30)
     interest = forms.CharField(max_length=500)
     gender = forms.CharField(max_length=7)
@@ -23,7 +23,7 @@ class ProfileForm(forms.Form):
         ret = super(ProfileForm,self).is_valid()
         if not ret:
             e = self._errors
-            pdb.set_trace()
+            #pdb.set_trace()
 
         return ret
 
@@ -32,16 +32,14 @@ class ProfileForm(forms.Form):
     def clean(self):
         super(ProfileForm,self).clean()
 
-        try:
-            userProfileImgFile = self.cleaned_data['avatar']
+        userProfileImgFile = self.cleaned_data['avatar']
+        if userProfileImgFile != None:
             imageType = userProfileImgFile.content_type
             if isinstance(imageType,unicode):
                 imageType = imageType.encode('ascii','ignore')
 
             if imageType!='image/jpeg':
                 raise forms.ValidationError('you have select a wrong image file format, pls select .img format')
-        except KeyError:
-            pass
 
         return self.cleaned_data
 
@@ -50,9 +48,11 @@ class ProfileForm(forms.Form):
             self.user = request.user
             try:
                 account = UserAccount.objects.get(user=self.user)
-                if account.user_avatar:
-                    account.user_avatar.delete()
-                account.user_avatar = self.cleaned_data['avatar']
+                if self.cleaned_data['avatar']!=None:
+                    if account.user_avatar:
+                        account.user_avatar.delete()
+                    account.user_avatar = self.cleaned_data['avatar']
+
                 account.user_displayname = self.cleaned_data['display_username']
                 account.user_phone = self.cleaned_data['phone']
                 account.user_location = self.cleaned_data['location']
@@ -61,7 +61,7 @@ class ProfileForm(forms.Form):
                 account.save()
                 return True
             except UserAccount.DoesNotExist:
-                f = request.FILES['avatar']
+                f = self.cleaned_data['avatar']
                 p = self.cleaned_data['phone']
                 d = self.cleaned_data['display_username']
                 l = self.cleaned_data['location']

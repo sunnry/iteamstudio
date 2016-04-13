@@ -10,13 +10,13 @@ def get_upload_path(instance,filename):
 class UserAccount(models.Model):
 #    user_logo_file = models.FileField()
 #    user_avatar = models.FileField(upload_to='user_avatar/%Y/%m/%d')
-    user_avatar = models.FileField(upload_to=get_upload_path)
-    user_displayname = models.CharField(max_length=30)
+    user_avatar = models.FileField(upload_to=get_upload_path,blank=True)
+    user_displayname = models.CharField(max_length=30,blank=True)
 #    user_email = models.EmailField(unique=True)
     user = models.OneToOneField(settings.AUTH_USER_MODEL)
     user_phone = models.IntegerField(null=True,blank=True)
     user_location = models.CharField(max_length=30)
-    user_interest = models.TextField(blank=True)
+    user_interest = models.TextField()
 
     UN = 'UN'
     FE = 'FE'

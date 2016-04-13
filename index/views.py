@@ -24,6 +24,8 @@ class HomePageIndexView(TemplateView):
                 username = getattr(account,'user_displayname')
                 if isinstance(username,unicode):
                     username = username.encode('ascii','ignore')
+                if username == '':
+                    username = self.request.user.get_username()
                 ret.update({'username':username})
             except UserAccount.DoesNotExist:
                 username = self.request.user.get_username()

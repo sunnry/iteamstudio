@@ -131,6 +131,10 @@ body {
   z-index: 10;
 }
 
+.carouselOne{
+  padding-left:450px;
+}
+
 /* Declare heights because of positioning of img element */
 .carousel .item {
   height: 800px;

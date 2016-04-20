@@ -1,11 +1,18 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.template import loader
 from django.views.generic.base import TemplateView
 from profiling.models import UserAccount
+from django.core.urlresolvers import reverse,reverse_lazy
 
 # Create your views here.
 
+def multilanguages(request):
+    lan = request.GET.get('lan')
+    if isinstance(lan,unicode):
+        lan = lan.encode('ascii','ignore')
+    request.session['lan'] = lan
+    return HttpResponseRedirect(reverse('index:index'))
 
 def indexPage(request):
 	template = loader.get_template('index/index.html')

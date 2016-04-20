@@ -22,7 +22,12 @@
                         </ul>
                   </div>
                 </li>
-                <li class="ddl"><a href="#programming">Programming</a>
+                <li class="ddl">
+		{% if request.session.lan == 'zh' %}
+		  <a href="#programming">IT服务</a>
+		{% else %}
+		  <a href="#programming">Programming</a>
+		{% endif %}
                   <div class="dd">
                         <ul class="list-unstyled">
                            <li>Bootstrap Template Design</li>
@@ -35,6 +40,14 @@
                 </li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#about">About Us</a></li>
+                <li class="ddl"><a href="#language">Language</a>
+                  <div class="dd">
+                        <ul class="list-unstyled">
+                           <li><a href="{% url 'multilanguages' %}?lan=en">English</a></li>
+                           <li><a href="{% url 'multilanguages' %}?lan=zh">中文</a></li>
+                        </ul>
+                  </div>
+		</li>
               </ul>
               <ul class="nav navbar-nav" style="float:right;">
 		{% if user.is_authenticated %}

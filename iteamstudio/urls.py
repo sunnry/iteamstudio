@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^$', include('index.urls',namespace="index")),
     url(r'^register/',include('register.urls',namespace="register")),
     url(r'^signin/',include('signin.urls',namespace="signin")),
+    url(r'^lang/$','index.views.multilanguages',name='multilanguages'),
     url(r'^accounts/signup/$','register.views.c_signup',name = 'customerSignup'),
     url(r'^accounts/login/$','signin.views.c_signin',name = 'customerSignin'),
     url(r'^accounts/captcha/$','signin.views.captcha',name = 'captcha'),

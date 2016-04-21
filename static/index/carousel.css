@@ -71,6 +71,7 @@ body {
 
 .navbar-inverse .navbar-brand{
   color:white;
+  float:right;
 }
 
 .navbar-inverse .navbar-nav>li>a{
@@ -93,6 +94,12 @@ body {
 
 .navbar-left-padding {
  padding-left: 180px;
+}
+
+.navbar-left-padding img{
+ width:60px;
+ height:60px;
+ margin-right:15px;
 }
 
 .navbar-right-padding {

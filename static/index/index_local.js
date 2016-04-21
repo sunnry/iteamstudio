@@ -4,6 +4,6 @@ playerInstance.setup({
 	image:"/public/index/introduce1_cover.jpg",
 	width:500,
 	height:500,
-	title:"test",
-	description:'show small cover',
+	title:"",
+	description:'',
 });

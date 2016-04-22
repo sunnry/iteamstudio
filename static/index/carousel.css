@@ -175,7 +175,9 @@ body {
   text-align: center;
 }
 .marketing h2 {
-  font-weight: normal;
+  font-weight: 300;
+  color:#00b5ec;
+  font-size:3vh;
 }
 
 .marketing .col-lg-4 .images{
@@ -212,8 +214,10 @@ body {
 }
 
 .marketing .col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
+  margin-right: 60px;
+  margin-left: 60px;
+  color:#7e8ab0;
+  font-size:18px;
 }
 
 .stopwatch{

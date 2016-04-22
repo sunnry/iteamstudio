@@ -1,5 +1,7 @@
 var transparent = true;
 
+var stick1Enable = false;
+
 $(document).ready(function(){
 });
 
@@ -66,6 +68,19 @@ var local = {
 						$('nav[role="navigation"]').addClass('navbar-transparent');
 					}
 				}
+
+				if($(document).scrollTop() > 450){
+					if(!stick1Enable){
+						stick1Enable = true;
+						$('#stick1fgimg').addClass('active');
+					}
+				}else{
+					if(stick1Enable){
+						stick1Enable = false;
+						$('#stick1fgimg').removeClass('active');
+					}
+				}
+
 			},17);
 			delayfunc();
 		}

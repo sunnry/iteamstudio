@@ -177,11 +177,49 @@ body {
 .marketing h2 {
   font-weight: normal;
 }
+
+.marketing .col-lg-4 .images{
+  height:240px;
+  width:240px;
+  margin:0 auto;
+  position:relative;
+}
+
+.marketing .col-lg-4 .images .bg img{
+  height:240px;
+  width:240px;
+}
+
+.marketing .col-lg-4 .images .fg img{
+  left:0px;
+  position:absolute;
+  top:0px;
+  height:240px;
+  width:240px;
+}
+
+.marketing .col-lg-4 .images .inactive img{
+ opacity:0;
+ -webkit-transition:opacity 0.5s, -webkit-transform 0.5s;
+ transition:opacity 0.5s,transform 0.5s;
+}
+
+
+.marketing .col-lg-4 .images .active img{
+ opacity:1 !important;
+ -webkit-transform:none !important;
+ transform:none !important;
+}
+
 .marketing .col-lg-4 p {
   margin-right: 10px;
   margin-left: 10px;
 }
 
+.stopwatch{
+ transform:rotate3D(0, 0, 1, 5deg) translate3D(1vw, 0, 0);
+ -webkit-transform:rotate3D(0, 0, 1, 5deg) translate3D(1vw, 0, 0);
+}
 
 /* Featurettes
 ------------------------- */
@@ -243,7 +281,7 @@ body {
 /*footer begin*/
 
 footer{
- color:#1fb2ef;
+ color:#00b5ec;
  padding:5vh 0;
  text-align:center;
  font-family:"Source Sans Pro", Helvetica, Arial, sans-serif;
@@ -258,7 +296,7 @@ footer p{
 }
 
 footer a{
- color:#1fb2ef;
+ color:#00b5ec;
  text-decoration:none;
 }
 /*footer end*/

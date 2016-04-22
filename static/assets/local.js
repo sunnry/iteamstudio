@@ -73,11 +73,15 @@ var local = {
 					if(!stick1Enable){
 						stick1Enable = true;
 						$('#stick1fgimg').addClass('active');
+						$('#stick2fgimg').addClass('active');
+						$('#stick3fgimg').addClass('active');
 					}
 				}else{
 					if(stick1Enable){
 						stick1Enable = false;
 						$('#stick1fgimg').removeClass('active');
+						$('#stick2fgimg').removeClass('active');
+						$('#stick3fgimg').removeClass('active');
 					}
 				}
 

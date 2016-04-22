@@ -304,6 +304,56 @@ body {
 
 /*footer begin*/
 
+.footer{
+ background:#e6e7e7;
+ overflow:hidden;
+ padding:5px 0 0;
+ text-align:center;
+}
+
+.footer .col-md-push-4{
+  left:40%;
+}
+
+.footer h2{
+ color:white;
+ font-size:23px;
+ font-weight:300;
+ text-align:center;
+}
+
+.footer .col-md-2{
+  width:200px;
+  padding-right:10px;
+}
+
+.footer .ticket.type2{
+ background:#00b5ec;
+ color:#ffffff;
+ margin-top:50px;
+}
+
+.footer .ticket.type3{
+ background:#ef5c4c;
+ color:#ffffff;
+ margin-top:50px;
+}
+
+.footer .ticket{
+ width:150px;
+}
+
+.footer .ticket a{
+ color:#fff;
+ display:block;
+ padding:1em;
+}
+
+.footer .ticket hr{
+  color:rgba(255,255,255,0.6);
+  margin:0 0 0px;
+}
+
 footer{
  color:#00b5ec;
  padding:5vh 0;
@@ -323,4 +373,5 @@ footer a{
  color:#00b5ec;
  text-decoration:none;
 }
+
 /*footer end*/

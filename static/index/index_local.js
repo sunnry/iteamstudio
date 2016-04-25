@@ -7,3 +7,7 @@ playerInstance.setup({
 	title:"",
 	description:'',
 });
+
+
+ whandler =new WOW();
+ whandler.init();

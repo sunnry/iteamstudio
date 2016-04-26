@@ -17,3 +17,14 @@ $('.grid').packery({
   itemSelector:'.grid-item',
   gutter:0
 });
+
+
+$('.grid1').on({
+        mouseenter:function(event){
+           $('.g1-view').addClass("g1-view-active");
+        },
+        mouseleave:function(event){
+           $('.g1-view').removeClass("g1-view-active");
+        }
+});
+

@@ -375,3 +375,125 @@ footer a{
 }
 
 /*footer end*/
+
+/*begin grids*/
+.gridrow{
+  max-width:1280px;
+  margin:0 auto;
+}
+
+.grid{
+ padding:0px;
+ overflow:hidden;
+ transition:all .3s ease-in-out,height .5s ease-in-out;
+ -webkit-backface-visibility:hidden;
+ width:100%;
+ max-width:1280px;
+ margin:0 auto;
+}
+
+
+.grid .grid-item a{
+ overflow:hidden;
+ height:100%;
+ width:100%;
+ text-decoration:none;
+}
+
+.grid .grid1{
+ width:50%;
+}
+
+.grid1 .desc{
+  float:left;
+  width:50%;
+  padding:0 50px 0 40px;
+  position:relavtive;
+  top:50%;
+}
+
+.grid1 .g1-view{
+  position:absolute;
+  right:0;
+  bottom:0;
+  width:100%;
+  height:75px;
+  color:#39ad43;
+  transition:all 2s ease-in;
+}
+
+.grid1 .g1-bg{
+  float:right;
+  width:320px;
+  max-width:50%;
+  height:100%;
+  background:transparent;
+  text-align:right;
+}
+
+.grid1 .g1-bg img{
+ display:block;
+ height:100%;
+ width:100%;
+ position:relative;
+}
+
+.grid .grid2,.grid .grid3,.grid .grid4,.grid .grid5,.grid .grid6,.grid .grid7,.grid .grid8,.grid .grid10,.grid12,.grid13,.grid14,.grid15,.grid16,.grid17{
+ width:25%;
+}
+
+.grid2 .g2-bg,.grid3 .g3-bg,.grid4 .g4-bg,.grid5 .g5-bg,.grid6 .g6-bg,.grid7 .g7-bg,.grid8 .g8-bg,.grid10 .g10-bg,.grid12 .g12-bg,.grid13 .g13-bg,.grid14 .g14-bg,.grid15 .g15-bg,.grid16 .g16-bg,.grid17 .g17-bg{
+ width:100%;
+ height:100%;
+}
+
+.grid2 .g2-view{
+ width:100%;
+ height:100%;
+}
+
+.grid .grid2 img,.grid .grid3 img,.grid .grid4 img,.grid .grid5 img, .grid .grid6 img,.grid .grid7 img,.grid .grid8 img,.grid .grid10 img,.grid .grid12 img,.grid .grid13 img,.grid .grid14 img,.grid .grid15 img,.grid .grid16 img,.grid .grid17 img{
+ display:block;
+ height:100%;
+ width:100%;
+ position:relative;
+ top:0;
+}
+
+.grid .grid9{
+ width:50%;
+}
+
+.grid9 .g9-bg{
+ width:100%;
+ height:100%;
+ display:block;
+}
+
+.grid9 .g9-bg img{
+ width:100%;
+ height:100%;
+ display:block;
+ top:0;
+ position:relative; 
+}
+
+.grid .grid11{
+ width:25%;
+}
+
+.grid11 .g11-bg{
+ width:100%;
+ height:100%;
+ display:block;
+}
+
+.grid11 .g11-bg img{
+ width:100%;
+ height:100%;
+ display:block;
+ top:0;
+ position:relative;
+}
+/*end grids*/
+

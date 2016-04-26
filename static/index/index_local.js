@@ -21,10 +21,26 @@ $('.grid').packery({
 
 $('.grid1').on({
         mouseenter:function(event){
-           $('.g1-view').addClass("g1-view-active");
+           $('.g1-view').addClass("active_t1");
         },
         mouseleave:function(event){
-           $('.g1-view').removeClass("g1-view-active");
+           $('.g1-view').removeClass("active_t1");
+        }
+});
+
+
+$('.grid9').on({
+        mouseenter:function(event){
+           $('.g9-view').addClass("active_t2");
+
+	   $('.g9-notes').removeClass("inactive_t3");
+	   $('.g9-notes').addClass("active_t3");
+        },
+        mouseleave:function(event){
+           $('.g9-view').removeClass("active_t2");
+
+	   $('.g9-notes').removeClass("active_t3");
+	   $('.g9-notes').addClass("inactive_t3");
         }
 });
 

@@ -44,3 +44,19 @@ $('.grid9').on({
         }
 });
 
+
+$('.grid11').on({
+        mouseenter:function(event){
+           $('.g11-view').addClass("active_t2");
+
+	   $('.g11-notes').removeClass("inactive_t4");
+	   $('.g11-notes').addClass("active_t4");
+        },
+        mouseleave:function(event){
+           $('.g11-view').removeClass("active_t2");
+
+	   $('.g11-notes').removeClass("active_t4");
+	   $('.g11-notes').addClass("inactive_t4");
+        }
+});
+

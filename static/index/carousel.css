@@ -468,6 +468,7 @@ footer a{
 
 .grid .grid2,.grid .grid3,.grid .grid4,.grid .grid5,.grid .grid6,.grid .grid7,.grid .grid8,.grid .grid10,.grid12,.grid13,.grid14,.grid15,.grid16,.grid17{
  width:25%;
+ overflow:hidden;
 }
 
 .grid2 .g2-bg,.grid3 .g3-bg,.grid4 .g4-bg,.grid5 .g5-bg,.grid6 .g6-bg,.grid7 .g7-bg,.grid8 .g8-bg,.grid10 .g10-bg,.grid12 .g12-bg,.grid13 .g13-bg,.grid14 .g14-bg,.grid15 .g15-bg,.grid16 .g16-bg,.grid17 .g17-bg{

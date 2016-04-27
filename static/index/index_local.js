@@ -28,6 +28,31 @@ $('.grid1').on({
         }
 });
 
+var g7_orgin_height = $('.g7-bg-img').height();
+
+$('.grid7').on({
+        mouseenter:function(event){
+	   if(g7_orgin_height == $('.g7-bg-img').height()){
+	   	$('.g7-bg-img').animate({ 
+				height:$('.g7-bg-img').height()*2,
+				width:$('.g7-bg-img').width()*2,
+				marginLeft:'-50%',
+				marginTop:'-50%',
+				}, 50);
+	   }
+        },
+        mouseleave:function(event){
+	   if((g7_orgin_height*2) == $('.g7-bg-img').height()){
+	   	$('.g7-bg-img').animate({ 
+				height:$('.g7-bg-img').height()*0.5,
+				width:$('.g7-bg-img').width()*0.5,
+				marginLeft:'0px',
+				marginTop:'0px',
+				}, 50);
+	   }
+        }
+});
+
 
 $('.grid9').on({
         mouseenter:function(event){
@@ -58,5 +83,18 @@ $('.grid11').on({
 	   $('.g11-notes').removeClass("active_t4");
 	   $('.g11-notes').addClass("inactive_t4");
         }
+});
+
+
+
+$(window).on('resize',function(){
+/*here we use g2-bg-img as standard, because g2 do not have scale effect,but the size is save
+ * with others, we use it height and width as standard	*/
+	g7_orgin_height = $('.g2-bg-img').height();
+	g7_orgin_width = $('.g2-bg-img').width();
+	$('.g7-bg-img').animate({
+                                height:g7_orgin_height,
+                                width:g7_orgin_width
+                                },0);
 });
 

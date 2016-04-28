@@ -78,6 +78,14 @@ $('.grid9').on({
         }
 });
 
+$('.grid10').on({
+        mouseenter:function(event){
+           $('.g10-view').addClass("active_t5");
+        },
+        mouseleave:function(event){
+           $('.g10-view').removeClass("active_t5");
+        }
+});
 
 $('.grid11').on({
         mouseenter:function(event){
@@ -94,6 +102,14 @@ $('.grid11').on({
         }
 });
 
+$('.grid15').on({
+        mouseenter:function(event){
+           $('.g15-view').addClass("active_t5");
+        },
+        mouseleave:function(event){
+           $('.g15-view').removeClass("active_t5");
+        }
+});
 
 
 $(window).on('resize',function(){

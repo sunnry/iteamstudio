@@ -479,6 +479,19 @@ footer a{
 .grid2 .g2-view{
  width:100%;
  height:100%;
+ position:absolute;
+ right:0;
+ bottom:0;
+ transition:all .3s;
+ z-index:1;
+}
+
+.grid .inactive_t5{
+ background-color:rgba(0,0,0,0);
+}
+
+.grid .active_t5{
+ background-color:rgba(0,0,0,0.3);
 }
 
 .grid .grid2 img,.grid .grid3 img,.grid .grid4 img,.grid .grid5 img, .grid .grid6 img,.grid .grid7 img,.grid .grid8 img,.grid .grid10 img,.grid .grid12 img,.grid .grid13 img,.grid .grid14 img,.grid .grid15 img,.grid .grid16 img,.grid .grid17 img{

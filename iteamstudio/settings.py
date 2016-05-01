@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'register',
     'signin',
     'profiling',
+    'about',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',

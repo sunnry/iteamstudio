@@ -46,7 +46,7 @@ $('.grid7').on({
 				height:$('.g7-bg-img').height()*2,
 				width:$('.g7-bg-img').width()*2,
 				marginLeft:'-50%',
-				marginTop:'-50%',
+				marginTop:'-38%',
 				}, 50);
 	   }
         },
@@ -61,6 +61,32 @@ $('.grid7').on({
 	   }
         }
 });
+
+var g8_orgin_height = $('.g8-bg-img').height();
+
+$('.grid8').on({
+        mouseenter:function(event){
+	   if(g8_orgin_height == $('.g8-bg-img').height()){
+	   	$('.g8-bg-img').animate({ 
+				height:$('.g8-bg-img').height()*2,
+				width:$('.g8-bg-img').width()*2,
+				marginLeft:'-50%',
+				marginTop:'-38%',
+				}, 50);
+	   }
+        },
+        mouseleave:function(event){
+	   if((g8_orgin_height*2) == $('.g8-bg-img').height()){
+	   	$('.g8-bg-img').animate({ 
+				height:$('.g8-bg-img').height()*0.5,
+				width:$('.g8-bg-img').width()*0.5,
+				marginLeft:'0px',
+				marginTop:'0px',
+				}, 50);
+	   }
+        }
+});
+
 
 
 $('.grid9').on({
@@ -121,5 +147,13 @@ $(window).on('resize',function(){
                                 height:g7_orgin_height,
                                 width:g7_orgin_width
                                 },0);
+
+	g8_orgin_height = $('.g2-bg-img').height();
+	g8_orgin_width = $('.g2-bg-img').width();
+	$('.g8-bg-img').animate({
+                                height:g8_orgin_height,
+                                width:g8_orgin_width
+                                },0);
+
 });
 

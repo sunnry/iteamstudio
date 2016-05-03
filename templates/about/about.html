@@ -1,2 +1,24 @@
-{% load staticfiles %}
-<p>hello this about me</p>
+{% extends 'about/about_base.html' %}
+
+{% block about_header %}
+	{% include 'index/header.html' %}
+	{% include 'about/about_header.html' %}
+{% endblock %}
+
+
+{% block navbar %}
+   {% include 'index/navbar.html' %}
+{% endblock %}
+
+{% block about_content %}
+   {% include 'about/about_content.html' %}
+{% endblock %}
+
+{% block footer %}
+   {% include 'index/footer.html' %}
+{% endblock %}
+
+
+{% block footloader %}
+   {% include 'index/footloader.html' %}
+{% endblock %}

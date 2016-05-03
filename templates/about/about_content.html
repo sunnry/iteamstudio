@@ -1,0 +1,164 @@
+{% load staticfiles %}
+
+
+
+<div class="section section-clients-2" id="clients">
+                <div class="container">
+                    <div class="title add-animation animate">
+                        <h2>What people think...</h2>
+                        <div class="separator-container">
+                            <div class="separator line-separator">∎</div>
+                        </div>
+                    </div>
+                    <div class="tab-content quotes add-animation animation-2 animate">
+                        <div class="tab-pane active" id="intel">
+                            <p class="large">Hi, your site and all the stuff on it looks simply awesome, thank's for sharing. Love this. Greetings from Germany!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+<!--team member introduce -->
+
+
+<div class="section section-team-2" id="team">
+                <div class="container">
+                    <div class="text-area">
+                        <div class="title add-animation animate">
+                            <h2>Meet our Team</h2>
+                            <div class="separator-container">
+                                <div class="separator line-separator">∎</div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="team">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="member add-animation animation-1 animate">
+                                    <img class="img-circle" src="{% static 'about/member2.jpg' %}">
+                                    <div class="description">
+                                        <h3 class="big-text">Ulrica wang</h3>
+                                        <br>
+                                        <p class="small-text">Cristina is one of the co-founders and takes care of growth, product development and partnerships. She is analytical, driven and adapts easily to new conditions, while trying to keep everyone on track.
+                                        </p>
+                                    </div>
+                                    <div class="social-buttons hidden-xs">
+                                       <a target="_blank" href="https://twitter.com/conacelelena" class="btn btn-social btn-twitter btn-simple"><i class="fa fa-twitter"></i></a>
+                                        <a target="_blank" href="https://www.linkedin.com/profile/view?id=250414665&amp;trk=hp-identity-photo" class="btn btn-social btn-linkedin btn-simple"><i class="fa fa-linkedin-square"></i></a>                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="member add-animation animation-4 animate">
+                                    <img class="img-circle" src="{% static 'about/member1.jpg' %}">
+                                    <div class="description">
+                                        <h3 class="big-text">Sunny sun</h3>
+                                        <br>
+                                        <p class="small-text">Beni is the guy responsible for keeping the platform in check, improving its functionality and adding new features. He is driven, always open for learning more, friendly and a fan of Ruby on Rails.
+                                        </p>
+                                    </div>
+
+                                    <div class="social-buttons hidden-xs">
+                                       <a target="_blank" href="https://twitter.com/marcu_beniamin" class="btn btn-social btn-twitter btn-simple"><i class="fa fa-twitter"></i></a>
+                                        <a target="_blank" href="https://www.linkedin.com/in/beniamin-marcu-52856947?authType=NAME_SEARCH&amp;authToken=uRkb&amp;locale=en_US&amp;trk=tyah&amp;trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A165614000%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1453464482516%2Ctas%3Abenia" class="btn btn-social btn-linkedin btn-simple"><i class="fa fa-linkedin-square"></i></a>
+                                        <a target="_blank" href="https://www.facebook.com/beniamin.marcu.1?fref=ts" class="btn btn-social btn-facebook btn-simple"><i class="fa fa-facebook-square"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+<!-- detail contact block-->
+
+<div class="section-content">
+    <div class="section-contact">
+        <div class="container">
+            <div class="text-area terms-content">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-4">
+                               <h1>Contact Us</h1>
+                               <h4>Get in touch and let us know how we can help.</h4>
+                        </div>
+                    </div>
+            </div>
+            <div class="contact-form">
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="address terms-content">
+                            <h3>We're legit</h3>
+                            <p class="text-gray">
+                                Creative Code SRL<br>
+                                RO 32193813<br>
+                                J27/531/30.08.2013
+                            </p>
+                            <h3>Give us a call</h3>
+                            <p class="text-gray">+40 / 746 461 075</p>
+                            <h3>Send us a note</h3>
+                            <a href="mailto:business@ialphastudio.com">
+                            <p class="text-gray">business@ialphastudio.com</p>
+                            </a>                     
+                        </div>
+                      </div>
+                      <div class="col-md-8 col-md-offset-1">
+                        <form class="space-top-20" action="/contact" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="3fugLU3OMJ1zxNj/wgjWPtr7xgLg7BEg9wcmV4buVAHQQAyf2jPx8Wa2quxMNxeQ5aeg56KgIWoLQcY+3m/9Tg==">
+    
+                            <div class="form-group">
+                              <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">           
+                            </div>
+                            <div class="form-group">
+                              <input type="text" name="email" id="email" class="form-control" placeholder="Your Email">
+                            </div>
+                            <div class="form-group">
+                                 <textarea rows="8" class="form-control" placeholder="You can write your message here..." name="text[content]" id="text_content"></textarea> 
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <script src="//www.google.com/recaptcha/api.js" async="" defer=""></script>
+<div class="g-recaptcha" data-sitekey="6LfJvgsTAAAAALbDuISbCDo1l6qyX_YrPT59xaVk" data-stoken="b3Ak9wz41ADM3j64QOba3MGNf1-_sX4oSLBC3XIpWeqdUJJVz3ioORr-ue_optn0eoG--ufZq6P1lrI6hnKDH_Bv9EVqMGPp5hV1ESJYyOg"></div>
+          <noscript>
+            <div style="width: 302px; height: 352px;">
+              <div style="width: 302px; height: 352px; position: relative;">
+                <div style="width: 302px; height: 352px; position: absolute;">
+                  <iframe
+                    src="//www.google.com/recaptcha/api/fallback?k=6LfJvgsTAAAAALbDuISbCDo1l6qyX_YrPT59xaVk"
+                    frameborder="0" scrolling="no"
+                    style="width: 302px; height:352px; border-style: none;">
+                  </iframe>
+                </div>
+                <div style="width: 250px; height: 80px; position: absolute; border-style: none;
+                  bottom: 21px; left: 25px; margin: 0px; padding: 0px; right: 25px;">
+                  <textarea id="g-recaptcha-response" name="g-recaptcha-response"
+                    class="g-recaptcha-response"
+                    style="width: 250px; height: 80px; border: 1px solid #c1c1c1;
+                    margin: 0px; padding: 0px; resize: none;" value="">
+                  </textarea>
+                </div>
+              </div>
+            </div>
+          </noscript>
+    
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="submit" name="commit" value="Send" class="btn btn-info btn-fill btn-lg pull-right">
+                                </div>
+                            </div>
+    
+</form>                      </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

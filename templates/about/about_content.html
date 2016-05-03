@@ -22,10 +22,6 @@
 
 
 
-
-
-
-
 <!--team member introduce -->
 
 
@@ -112,7 +108,9 @@
                         </div>
                       </div>
                       <div class="col-md-8 col-md-offset-1">
-                        <form class="space-top-20" action="/contact" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="3fugLU3OMJ1zxNj/wgjWPtr7xgLg7BEg9wcmV4buVAHQQAyf2jPx8Wa2quxMNxeQ5aeg56KgIWoLQcY+3m/9Tg==">
+                        <form class="space-top-20" action="/contact" accept-charset="UTF-8" method="post">
+			    <input name="utf8" type="hidden" value="">
+			    <input type="hidden" name="authenticity_token" value="">
     
                             <div class="form-group">
                               <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">           
@@ -121,37 +119,11 @@
                               <input type="text" name="email" id="email" class="form-control" placeholder="Your Email">
                             </div>
                             <div class="form-group">
-                                 <textarea rows="8" class="form-control" placeholder="You can write your message here..." name="text[content]" id="text_content"></textarea> 
+                                 <textarea rows="8" class="form-control" name="contact_details" placeholder="You can write your message here..." id="text_content"></textarea> 
                             </div>
                             
                             <div class="row">
-                                <div class="col-md-6">
-                                    <script src="//www.google.com/recaptcha/api.js" async="" defer=""></script>
-<div class="g-recaptcha" data-sitekey="6LfJvgsTAAAAALbDuISbCDo1l6qyX_YrPT59xaVk" data-stoken="b3Ak9wz41ADM3j64QOba3MGNf1-_sX4oSLBC3XIpWeqdUJJVz3ioORr-ue_optn0eoG--ufZq6P1lrI6hnKDH_Bv9EVqMGPp5hV1ESJYyOg"></div>
-          <noscript>
-            <div style="width: 302px; height: 352px;">
-              <div style="width: 302px; height: 352px; position: relative;">
-                <div style="width: 302px; height: 352px; position: absolute;">
-                  <iframe
-                    src="//www.google.com/recaptcha/api/fallback?k=6LfJvgsTAAAAALbDuISbCDo1l6qyX_YrPT59xaVk"
-                    frameborder="0" scrolling="no"
-                    style="width: 302px; height:352px; border-style: none;">
-                  </iframe>
-                </div>
-                <div style="width: 250px; height: 80px; position: absolute; border-style: none;
-                  bottom: 21px; left: 25px; margin: 0px; padding: 0px; right: 25px;">
-                  <textarea id="g-recaptcha-response" name="g-recaptcha-response"
-                    class="g-recaptcha-response"
-                    style="width: 250px; height: 80px; border: 1px solid #c1c1c1;
-                    margin: 0px; padding: 0px; resize: none;" value="">
-                  </textarea>
-                </div>
-              </div>
-            </div>
-          </noscript>
-    
-                                </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 contact-submit">
                                     <input type="submit" name="commit" value="Send" class="btn btn-info btn-fill btn-lg pull-right">
                                 </div>
                             </div>

@@ -64,7 +64,7 @@
 
                                     <div class="social-buttons hidden-xs">
                                        <a target="_blank" href="https://twitter.com/marcu_beniamin" class="btn btn-social btn-twitter btn-simple"><i class="fa fa-twitter"></i></a>
-                                        <a target="_blank" href="https://www.linkedin.com/in/beniamin-marcu-52856947?authType=NAME_SEARCH&amp;authToken=uRkb&amp;locale=en_US&amp;trk=tyah&amp;trkInfo=clickedVertical%3Amynetwork%2CclickedEntityId%3A165614000%2CauthType%3ANAME_SEARCH%2Cidx%3A1-1-1%2CtarId%3A1453464482516%2Ctas%3Abenia" class="btn btn-social btn-linkedin btn-simple"><i class="fa fa-linkedin-square"></i></a>
+                                        <a target="_blank" href="#" class="btn btn-social btn-linkedin btn-simple"><i class="fa fa-linkedin-square"></i></a>
                                         <a target="_blank" href="https://www.facebook.com/beniamin.marcu.1?fref=ts" class="btn btn-social btn-facebook btn-simple"><i class="fa fa-facebook-square"></i></a>
                                     </div>
                                 </div>
@@ -108,17 +108,27 @@
                         </div>
                       </div>
                       <div class="col-md-8 col-md-offset-1">
-                        <form class="space-top-20" action="/contact" accept-charset="UTF-8" method="post">
-			    <input name="utf8" type="hidden" value="">
-			    <input type="hidden" name="authenticity_token" value="">
-    
+			{% if send_success %}
+			   <p>{{send_success}}</p>
+			{% endif %}
+                        <form class="space-top-20" action="/contact/" accept-charset="UTF-8" method="post">
+			    {% csrf_token %}
                             <div class="form-group">
+			      {% if name_error %}
+				<em>{{name_error}}</em>
+			      {% endif %}
                               <input type="text" name="name" id="name" class="form-control" placeholder="Your Name">           
                             </div>
                             <div class="form-group">
+			      {% if email_error %}
+				<em>{{email_error}}</em>
+			      {% endif %}
                               <input type="text" name="email" id="email" class="form-control" placeholder="Your Email">
                             </div>
                             <div class="form-group">
+			      {% if contact_details_error %}
+				<em>{{contact_details_error}}</em>
+			      {% endif %}
                                  <textarea rows="8" class="form-control" name="contact_details" placeholder="You can write your message here..." id="text_content"></textarea> 
                             </div>
                             

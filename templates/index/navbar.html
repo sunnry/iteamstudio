@@ -34,8 +34,9 @@
                         </ul>
                   </div>
                 </li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="{% url 'about_us' %}">Contact</a></li>
                 <li><a href="{% url 'about_us' %}">About Us</a></li>
+		<!--
                 <li class="ddl"><a href="#language">Language</a>
                   <div class="dd">
                         <ul class="list-unstyled">
@@ -44,6 +45,7 @@
                         </ul>
                   </div>
 		</li>
+		-->
               </ul>
               <ul class="nav navbar-nav" style="float:right;">
 		{% if user.is_authenticated %}

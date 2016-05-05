@@ -21,7 +21,7 @@ class ContactUsForm(forms.Form):
         name = self.cleaned_data['name']
         email = self.cleaned_data['email']
         message = self.cleaned_data['contact_details']
-        send_mail(name,message,email,['sunhaihuan@gmail.com'],fail_silently=False)
+        send_mail(name,message,email,['842513780@@qq.com'],fail_silently=False)
 
 
 

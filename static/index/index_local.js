@@ -37,6 +37,17 @@ $('.grid2').on({
         }
 });
 
+
+$('.grid6').on({
+        mouseenter:function(event){
+           $('.g6-view').addClass("active_t5");
+        },
+        mouseleave:function(event){
+           $('.g6-view').removeClass("active_t5");
+        }
+});
+
+
 var g7_orgin_height = $('.g7-bg-img').height();
 
 $('.grid7').on({

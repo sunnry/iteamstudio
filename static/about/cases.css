@@ -1,0 +1,21 @@
+.navbar-transparent{
+ background-color:#00b5ec;
+}
+
+.featurette-divider{
+ width:auto;
+ height:100px;
+}
+
+.col-md-7{
+  padding-left:80px;
+  width:50%;
+}
+
+.col-md-5{
+  width:50%;
+}
+
+.col-md-push-5{
+  padding-right:80px;
+}

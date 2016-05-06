@@ -10,9 +10,23 @@ from .forms import ContactUsForm
 class aboutView(TemplateView):
     template_name = 'about/about.html';
 
-
 about_us = aboutView.as_view()
 
+
+class casesView(TemplateView):
+    template_name = 'about/cases.html';
+
+    def get_context_data(self,**kwargs):
+        ret = super(casesView,self).get_context_data()
+        id = self.request.GET.get('id')
+        if id != None:
+            if isinstance(id,unicode):
+                id = id.encode('ascii','ignore')
+            ret.update({'id':id})
+
+        return ret
+
+cases = casesView.as_view() 
 
 
 class contactView(AjaxCapableProcessFormViewMixin,FormView):

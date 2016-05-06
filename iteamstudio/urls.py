@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^lang/$','index.views.multilanguages',name='multilanguages'),
     url(r'^about/$','about.views.about_us',name='about_us'),
     url(r'^contact/$','about.views.contact_us',name='contact_us'),
+    url(r'^cases/$','about.views.cases',name='cases'),
     url(r'^accounts/signup/$','register.views.c_signup',name = 'customerSignup'),
     url(r'^accounts/login/$','signin.views.c_signin',name = 'customerSignin'),
     url(r'^accounts/captcha/$','signin.views.captcha',name = 'captcha'),

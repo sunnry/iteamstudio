@@ -139,6 +139,15 @@ $('.grid11').on({
         }
 });
 
+$('.grid13').on({
+        mouseenter:function(event){
+           $('.g13-view').addClass("active_t5");
+        },
+        mouseleave:function(event){
+           $('.g13-view').removeClass("active_t5");
+        }
+});
+
 $('.grid15').on({
         mouseenter:function(event){
            $('.g15-view').addClass("active_t5");

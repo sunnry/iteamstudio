@@ -106,6 +106,16 @@ body {
  padding-right: 180px;
 }
 
+.dd ul li a{
+ text-decoration:none;
+ color:white;
+}
+
+.dd ul li a:hover{
+ text-decoration:none;
+ font-size:24px;
+}
+
 .navbar-nav>li>a {
  padding-top: 25px;
  padding-bottom: 25px;
@@ -136,6 +146,11 @@ body {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
+}
+
+.carousel-caption .btn-primary{
+  background-color:transparent;
+  border-color:transparent;
 }
 
 .carouselOne{
@@ -580,13 +595,13 @@ footer a{
 }
 
 .grid10 .desc h2{
- font-size:30px;
+ font-size:20px;
  padding-right:20px;
  text-align:right;
 }
 
 .grid10 .desc h3{
- font-size:25px;
+ font-size:20px;
  padding-right:20px;
  color:#00b5ec;
  text-align:right;

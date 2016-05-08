@@ -11,19 +11,21 @@
    position: fixed;
    opacity: 1;
    transition: opacity .5s;
+/*
    filter:blur(7px);
    -webkit-filter:blur(7px);
    -ms-filter:blur(7px);
    -moz-filter:blur(7px);
    -o-filter:blur(7px);
+*/
 }
 
 #auth-form-wrapper {
   position:absolute;
   background-color:#f5f5f7;
   width:360px;
-  left:50%;
-  top:100px;
+  left:60%;
+  top:160px;
   border-radius:3px;
   margin-left:-180px;
   margin-bottom:40px;

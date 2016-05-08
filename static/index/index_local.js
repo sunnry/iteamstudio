@@ -157,6 +157,15 @@ $('.grid15').on({
         }
 });
 
+$('.grid17').on({
+        mouseenter:function(event){
+           $('.g17-view').addClass("active_t5");
+        },
+        mouseleave:function(event){
+           $('.g17-view').removeClass("active_t5");
+        }
+});
+
 
 $(window).on('resize',function(){
 /*here we use g2-bg-img as standard, because g2 do not have scale effect,but the size is save

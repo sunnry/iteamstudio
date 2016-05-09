@@ -11,6 +11,10 @@ $(window).on('scroll',function(){
 });
 
 
+whandler =new WOW();
+whandler.init();
+
+
 $('.ddl').on({
 	mouseenter:function(event){
 	   $sub = $(this).children('.dd');

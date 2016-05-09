@@ -131,8 +131,13 @@
  color:#333333;
 }
 
+.form-control{
+ border-radius:0px;
+}
+
 .btn-info.btn-fill{
  background-color:#00bbff;
+ border-radius:0px;
 }
 
 .contact-submit{

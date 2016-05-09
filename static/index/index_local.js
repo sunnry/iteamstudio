@@ -8,11 +8,6 @@ playerInstance.setup({
 	description:'',
 });
 
-
- whandler =new WOW();
- whandler.init();
-
-
 $('.grid').packery({
   itemSelector:'.grid-item',
   gutter:0

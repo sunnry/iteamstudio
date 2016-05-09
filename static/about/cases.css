@@ -16,6 +16,10 @@
   width:50%;
 }
 
+.col-padding-left{
+ padding-left:200px;
+}
+
 .col-md-push-5{
   padding-right:80px;
 }

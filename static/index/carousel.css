@@ -697,6 +697,22 @@ footer a{
  color:black;
 }
 
+.grid17 .desc{
+ float:left;
+ width:100%;
+ padding:0 0 0 40px;
+ position:absolute;
+ top:0;
+ z-index:2;
+}
+
+.grid17 .desc h2{
+ font-size:25px;
+ font-weight:bold;
+ color:black;
+}
+
+
 /*end grids*/
 
 /*start diviend*/

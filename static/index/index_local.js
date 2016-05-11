@@ -189,6 +189,34 @@ $('.grid13').on({
         }
 });
 
+var g14_orgin_height = $('.g14-bg-img').height();
+
+$('.grid14').on({
+        mouseenter:function(event){
+	   if(g14_orgin_height == $('.g14-bg-img').height()){
+	   	$('.g14-bg-img').animate({ 
+				height:$('.g14-bg-img').height()*2,
+				width:$('.g14-bg-img').width()*2,
+				marginLeft:'-50%',
+				marginTop:'-38%',
+				}, 50);
+	   }
+        },
+        mouseleave:function(event){
+	   if((g14_orgin_height*2) == $('.g14-bg-img').height()){
+	   	$('.g14-bg-img').animate({ 
+				height:$('.g14-bg-img').height()*0.5,
+				width:$('.g14-bg-img').width()*0.5,
+				marginLeft:'0px',
+				marginTop:'0px',
+				}, 50);
+	   }
+        }
+});
+
+
+
+
 $('.grid15').on({
         mouseenter:function(event){
            $('.g15-view').addClass("active_t5");
@@ -197,6 +225,34 @@ $('.grid15').on({
            $('.g15-view').removeClass("active_t5");
         }
 });
+
+var g16_orgin_height = $('.g16-bg-img').height();
+
+$('.grid16').on({
+        mouseenter:function(event){
+	   if(g16_orgin_height == $('.g16-bg-img').height()){
+	   	$('.g16-bg-img').animate({ 
+				height:$('.g16-bg-img').height()*2,
+				width:$('.g16-bg-img').width()*2,
+				marginLeft:'-50%',
+				marginTop:'-38%',
+				}, 50);
+	   }
+        },
+        mouseleave:function(event){
+	   if((g16_orgin_height*2) == $('.g16-bg-img').height()){
+	   	$('.g16-bg-img').animate({ 
+				height:$('.g16-bg-img').height()*0.5,
+				width:$('.g16-bg-img').width()*0.5,
+				marginLeft:'0px',
+				marginTop:'0px',
+				}, 50);
+	   }
+        }
+});
+
+
+
 
 $('.grid17').on({
         mouseenter:function(event){
@@ -211,6 +267,14 @@ $('.grid17').on({
 $(window).on('resize',function(){
 /*here we use g2-bg-img as standard, because g2 do not have scale effect,but the size is save
  * with others, we use it height and width as standard	*/
+	g16_orgin_height = $('.g2-bg-img').height();
+	g16_orgin_width = $('.g2-bg-img').width();
+	$('.g16-bg-img').animate({
+                                height:g16_orgin_height,
+                                width:g16_orgin_width
+                                },0);
+
+
 	g4_orgin_height = $('.g2-bg-img').height();
 	g4_orgin_width = $('.g2-bg-img').width();
 	$('.g4-bg-img').animate({

@@ -41,5 +41,6 @@ has deployed in following environment:
 #pip install django-allauth(0.25.2)
 #apt-get install python-mysqldb
 #apt-get install libjpeg-dev
+#apt-get install libfreetype6-dev(this must install before Pillow)
 #pip install Pillow(3.2.0)
 

@@ -22,3 +22,24 @@ get information of one python module
    	for example in allauth default signup template signup.html, the form has a hidden input
    value of 'next' when signup successfully with this default signup template, it will redirect
    to the url valued with 'redirect_field_value', if you set redirect_field_value to '\', when si   gnup successfully, it will redirect to '\', but if you want to use this feature you must add input element named with 'next' into your template, remember this.
+
+
+requirements:
+has developed in following environment:
+#apt-get install nginx(1.4.6)
+#apt-get install uwsgi(4.8.4)
+#pip install django(1.8.9)
+#pip install django-allauth(0.25.2)
+#apt-get install python-mysqldb
+#apt-get install libjpeg-dev
+#pip install Pillow(2.3.0)
+
+has deployed in following environment:
+#apt-get install nginx(1.4.6)
+#apt-get install uwsgi(2.0.13)
+#pip install django(1.9.6)
+#pip install django-allauth(0.25.2)
+#apt-get install python-mysqldb
+#apt-get install libjpeg-dev
+#pip install Pillow(3.2.0)
+
